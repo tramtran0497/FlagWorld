@@ -15,10 +15,16 @@ export const useFetchCountries = (url = "https://restcountries.com/v3.1/all") =>
             try {
                 setLoading(true)
                 const response = await (await fetch(url)).json()
-                console.log("Data of all countries", response)
-                const listNameCountries = response.map(country => country.name.official)
-                //setListCountries(response)
-                setListCountries(listNameCountries)
+                const listNameCountries = response.map(country => {
+                    return {
+                        name: country.name.common, // string
+                        capital: country.capital && country.capital[0], // array
+                        region: country.region, // string
+                        languages: country.languages, // object
+                        flag: country.flags.png // string
+                    }
+                })
+                setListCountries(listNameCountries) // Objects list
                 setLoading(false)
             } catch (error) {
                 setError(error)

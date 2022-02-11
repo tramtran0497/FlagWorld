@@ -12,8 +12,7 @@ export const useFetchCountryName = (inputText) => {
             try{
                 setLoadingCountry(true)
                 const response = await (await fetch(`https://restcountries.com/v3.1/name/${inputText}`)).json()
-                const nameOfCountry = response[0].name.official
-                console.log("Name of FetchData", nameOfCountry)
+                const nameOfCountry = response[0].name.common
                 setCountry(nameOfCountry)
                 setLoadingCountry(false)
             } catch(error) {
