@@ -12,8 +12,16 @@ export const useFetchCountryName = (inputText) => {
             try{
                 setLoadingCountry(true)
                 const response = await (await fetch(`https://restcountries.com/v3.1/name/${inputText}`)).json()
-                const nameOfCountry = response[0].name.common
-                setCountry(nameOfCountry)
+                const country = response.map(country => {
+                    return {
+                        name: country.name.common, //string
+                        capital: country.capital && country.capital[0], // array
+                        region: country.region, // string
+                        languages: country.languages && Object.values(country.languages), // object
+                        flag: country.flags.png // string
+                    }
+                })[0]
+                setCountry(country)
                 setLoadingCountry(false)
             } catch(error) {
                 setErrorCountry(error)

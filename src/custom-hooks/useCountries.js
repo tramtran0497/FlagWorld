@@ -20,7 +20,7 @@ export const useFetchCountries = (url = "https://restcountries.com/v3.1/all") =>
                         name: country.name.common, // string
                         capital: country.capital && country.capital[0], // array
                         region: country.region, // string
-                        languages: country.languages, // object
+                        languages: country.languages && Object.values(country.languages), // object
                         flag: country.flags.png // string
                     }
                 })

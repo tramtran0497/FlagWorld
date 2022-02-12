@@ -1,12 +1,19 @@
 import "./App.css";
-import TableShowsCountries from "./Components/Table/TableShowCountries";
+import { Routes, Route, Navigate } from "react-router-dom";
+import ViewCountries from "./Pages/ViewCountries";
+import Country from"./Pages/Country";
+import HeartIcon from "./Pages/HeartIcon";
 
 
 function App() {
-  
   return (
     <div>
-      <TableShowsCountries/>
+      <Routes>
+        <Route path="heartIcon" element={<HeartIcon />} />
+        <Route path="/" element={<ViewCountries />} />
+        <Route path="country/:name" element={<Country />} />
+        <Route path="*" element={<Navigate to ="/" />}/>
+      </Routes>
     </div>
   );
 }
