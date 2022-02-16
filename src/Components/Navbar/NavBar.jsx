@@ -1,11 +1,12 @@
 import React from "react";
 import NavItems from "./NavItems"
-import SearchField from "./Search";
+import Search from "./Search";
+import "./NavbarStyle/Navbar.css"
 
-function NavBar() {
+function NavBar({searchNameCountries}) {
   return(
-      <div>
-        <SearchField/>
+      <div className="nav-bar">
+        <Search searchNameCountries={searchNameCountries}/>
         <NavItems/>
       </div>
   );

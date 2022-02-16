@@ -6,12 +6,12 @@ import HeartIcon from "./Pages/HeartIcon";
 
 
 function App() {
+  // <Route path="heartIcon" element={<HeartIcon />} />
+  // <Route path="country/:name" element={<Country />} />
   return (
     <div>
       <Routes>
-        <Route path="heartIcon" element={<HeartIcon />} />
         <Route path="/" element={<ViewCountries />} />
-        <Route path="country/:name" element={<Country />} />
         <Route path="*" element={<Navigate to ="/" />}/>
       </Routes>
     </div>

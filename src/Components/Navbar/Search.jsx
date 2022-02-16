@@ -1,60 +1,53 @@
-import React from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import { styled, alpha } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
+import React, { useState } from 'react'
+import { useCountries } from '../../custom-hooks/useCountries'
+import './NavbarStyle/Search.css'
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.black, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.black, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-}));
+function Search({searchNameCountries}) {
+  const [inputText, setInputText] = useState("")
+  const [suggestListName, setSuggestListName] = useState([])
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
+  const {listCountries, loading, error} = useCountries()
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
+  const suggestNames = (inputText) => {
+    if(!inputText) {
+      setSuggestListName([]) 
+    } else{
+      const text = inputText.toLowerCase()
+      const suggestedList = listCountries.filter(country => country.name.toLowerCase().includes(text))
+      setSuggestListName(suggestedList)
+    }
+  }
 
-function SearchField() {
+  const handleChange = (event) => {
+    event.preventDefault()
+    setInputText(event.target.value)
+    suggestNames(event.target.value)
+  }
+
+  const handleEnter = (event) => {
+    if(event.charCode === 13){
+      handleSubmit(event)
+      setSuggestListName([])
+  }
+  }
+
+  const handleSubmit = (event) => {
+    searchNameCountries(inputText)
+    setInputText("")
+    setSuggestListName([])
+
+  }
   return (
-    <Search>
-      <SearchIconWrapper>
-        <SearchIcon />
-      </SearchIconWrapper>
-      <StyledInputBase
-        placeholder="Search…"
-        inputProps={{ "aria-label": "search" }}
-      />
-    </Search>
-  );
+    <div className='search-field'>
+      <div>
+        <input type="text" placeholder='What are you looking for?...' onChange={handleChange} value={inputText} onKeyPress={handleEnter}/>
+        <button onClick={handleSubmit}>Serch</button>
+      </div>
+      <div>
+      {suggestListName?.map(country => <p key={country.name}>{country.name}</p>)}
+      </div>
+    </div>
+  )
 }
 
-export default SearchField;
+export default Search

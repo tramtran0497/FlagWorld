@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export const useFetchCountryName = (inputText) => {
+export const useCountry = (inputText) => {
     const [country, setCountry] = useState(null)
     const [loadingCountry, setLoadingCountry] = useState(false)
     const [errorCountry, setErrorCountry] = useState(null)

@@ -1,19 +1,33 @@
-import { TableCell, TableRow } from '@mui/material'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Add, Favorite, Remove } from '@mui/icons-material'
+import React, {useState} from 'react'
+import './TableStyle/TableRows.css'
 
-function TableRows({country, key}) {
-    console.log("Rows",country)
+function TableRows({item}) {
+  const [quantity, setQuantity] = useState(0)
+
+  const handleAdd = () => {
+    setQuantity(quantity + 1)
+  } 
+
+  const handleRemove = () => {
+    if(quantity > 0) setQuantity(quantity - 1)
+    setQuantity(0)
+  }
   return (
-    <TableRow key={key} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-        <Link to={`/country/${country.name.toLowerCase()}`} >
-          <TableCell component="th" scope="row" align='center'>{country.name}</TableCell>
-        </Link>
-        <TableCell align='center'>{country.capital}</TableCell>
-        <TableCell align='center'>{country.region}</TableCell>
-        <TableCell align='center'>{country.languages && country.languages.map(language => <p key={language}>{language}</p>)}</TableCell>
-        <TableCell align='center'><img src={country.flag} alt="country flag"/></TableCell>
-    </TableRow>
+    <tr>
+      <td><img src={item.flag} alt={item.name} /></td>
+      <td>{item.name}</td>
+      <td>{item.capital}</td>
+      <td>{item.region}</td>
+      <td>{item.population}</td>
+      <td>{item.languages && item.languages.map(language => <p key={language}>{language}</p>)}</td>
+      <td className='quantity'>
+        <Remove onClick = {handleRemove}/>
+        <p>{quantity}</p>
+        <Add onClick = {handleAdd}/>
+      </td>
+      <td><Favorite/></td>
+    </tr>
   )
 }
 

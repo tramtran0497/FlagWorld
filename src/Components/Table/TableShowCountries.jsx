@@ -1,18 +1,15 @@
-import React from 'react'
-import Table from '@mui/material/Table';
-import TableContainer from '@mui/material/TableContainer';
-import TableHeader from './TableHeader';
-import TableShowsBody from './TableBody';
+import TableHead from "./TableHead"
+import TableBody from "./TableBody"
 
+function TableShowsCountries({listItems, loading, error}) {
+  if(loading) return <h1>Loading...</h1>
+  if(error) return <h1>Something went wrong...</h1>
 
-function TableShowsCountries() {
   return (
-    <TableContainer component="paper">
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHeader/>
-            <TableShowsBody/>
-        </Table>
-    </TableContainer>
+    <table>
+      <TableHead/>
+      <TableBody listItems={listItems}/>
+    </table>
   )
 }
 

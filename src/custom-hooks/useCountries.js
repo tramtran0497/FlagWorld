@@ -5,7 +5,7 @@ import {
     useState
 } from "react"
 
-export const useFetchCountries = (url = "https://restcountries.com/v3.1/all") => {
+export const useCountries = (url = "https://restcountries.com/v3.1/all") => {
     const [listCountries, setListCountries] = useState(null)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
@@ -18,10 +18,11 @@ export const useFetchCountries = (url = "https://restcountries.com/v3.1/all") =>
                 const listNameCountries = response.map(country => {
                     return {
                         name: country.name.common, // string
-                        capital: country.capital && country.capital[0], // array
+                        capital: country.capital && country.capital[0], // string
                         region: country.region, // string
-                        languages: country.languages && Object.values(country.languages), // object
-                        flag: country.flags.png // string
+                        languages: country.languages && Object.values(country.languages), // array
+                        flag: country.flags.png, // string
+                        population: country.population, // number
                     }
                 })
                 setListCountries(listNameCountries) // Objects list

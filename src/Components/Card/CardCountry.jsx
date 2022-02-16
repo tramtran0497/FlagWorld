@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useFetchCountryName } from "../../custom-hooks/useCountry";
+import { useCountry } from "../../custom-hooks/useCountry";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -13,6 +13,8 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { styled } from "@mui/material/styles";
 import { useParams } from "react-router-dom";
+import { Input, Button } from '@mui/material'
+
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -31,7 +33,7 @@ function CardCountry() {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const { country, loadingCountry, errorCountry } = useFetchCountryName(name);
+  const { country, loadingCountry, errorCountry } = useCountry(name);
 
   useEffect(() => {
     //console.log(country && country.name)
@@ -79,7 +81,9 @@ function CardCountry() {
             {country &&
               country.languages.map((language) => (
                 <span key={language}>{language}</span>
-              ))}
+            ))}
+            <Input type="number"></Input>
+            <Button variant="outlined">Add Cart</Button>
           </Typography>
         </CardContent>
       </Collapse>
