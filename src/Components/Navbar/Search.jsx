@@ -18,6 +18,10 @@ function Search({searchNameCountries}) {
     }
   }
 
+  const handleClick = (event) => {
+    setInputText(event.target.textContent)
+  }
+
   const handleChange = (event) => {
     event.preventDefault()
     setInputText(event.target.value)
@@ -35,7 +39,6 @@ function Search({searchNameCountries}) {
     searchNameCountries(inputText)
     setInputText("")
     setSuggestListName([])
-
   }
   return (
     <div className='search-field'>
@@ -44,7 +47,7 @@ function Search({searchNameCountries}) {
         <button onClick={handleSubmit}>Serch</button>
       </div>
       <div>
-      {suggestListName?.map(country => <p key={country.name}>{country.name}</p>)}
+      {suggestListName?.map(country => <p key={country.name} onClick={handleClick}>{country.name}</p>)}
       </div>
     </div>
   )

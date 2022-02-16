@@ -1,15 +1,17 @@
-import { List } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import NavBar from '../Components/Navbar/NavBar'
 import TableShowsCountries from '../Components/Table/TableShowCountries'
 import { useCountries } from '../custom-hooks/useCountries'
 
 function ViewCountries() {
-  const [displayList, setDisplayList] = useState([])
   const {listCountries, loading, error} = useCountries()
+  const [displayList, setDisplayList] = useState(listCountries)
+
+  useEffect(() => {
+    setDisplayList(listCountries)
+  }, [listCountries])
 
   const searchNameCountries = (inputText) => {
-    console.log("searchNameCountries",inputText)
     if(!inputText) {
       setDisplayList(listCountries) 
     } else{
@@ -18,7 +20,7 @@ function ViewCountries() {
       setDisplayList(searchedList)
     }
   }
-  
+
   return (
     <div>
         <NavBar searchNameCountries={searchNameCountries}/>
