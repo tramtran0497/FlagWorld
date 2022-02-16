@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useCountries } from '../../custom-hooks/useCountries'
 import './NavbarStyle/Search.css'
 
 function Search({searchNameCountries}) {
   const [inputText, setInputText] = useState("")
   const [suggestListName, setSuggestListName] = useState([])
-
   const {listCountries, loading, error} = useCountries()
+
+  useEffect(() => {
+    if(inputText === "") {
+      searchNameCountries("")
+    }
+  }, [inputText])
 
   const suggestNames = (inputText) => {
     if(!inputText) {
@@ -23,9 +28,9 @@ function Search({searchNameCountries}) {
   }
 
   const handleChange = (event) => {
-    event.preventDefault()
-    setInputText(event.target.value)
-    suggestNames(event.target.value)
+      event.preventDefault()
+      setInputText(event.target.value)
+      suggestNames(event.target.value)
   }
 
   const handleEnter = (event) => {
@@ -37,7 +42,6 @@ function Search({searchNameCountries}) {
 
   const handleSubmit = (event) => {
     searchNameCountries(inputText)
-    setInputText("")
     setSuggestListName([])
   }
   return (
