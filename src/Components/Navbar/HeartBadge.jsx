@@ -7,7 +7,7 @@ function HeartBadge() {
     const [hiddenList, setHiddenList] = useState(true)
     const {qty, listFavorite} = useSelector(state => state.favorite)
     useEffect(()=>{
-        console.log(qty, listFavorite)
+        //console.log(qty, listFavorite)
     })
     const handleHidden = () => {
         setHiddenList(!hiddenList)
