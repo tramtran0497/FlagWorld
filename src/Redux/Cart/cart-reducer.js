@@ -1,25 +1,57 @@
-import { ADD_TO_CART, ADJUST_QTY, LOAD_CURRENT_ITEM, REMOVE_FROM_CART } from "./cart-types"
+import { ADD_TO_CART, REMOVE_FROM_CART } from "./cart-types";
 
 const INITIAL_STATE = {
-    countries: [],
-    cart: [],
-    currentItem: null,
-}
+  listCart: [],
+};
 
 const cartReducer = (state = INITIAL_STATE, action) => {
-    switch (action.type) {
-        case ADD_TO_CART:
-            return {}
-        case REMOVE_FROM_CART:
-            return {}
-        case ADJUST_QTY:
-            return {}
-        case LOAD_CURRENT_ITEM:
-            return {}
-        default: 
-        return state
-    }
-       
-}
+  const inCart = state.listCart.find(
+    (item) => item.name === action.payload.name
+  );
+  switch (action.type) {
+    case ADD_TO_CART:
+      return {
+        ...state,
+        listCart: inCart
+          ? state.listCart.map((item) =>
+              item.name === action.payload.name
+                ? { ...item, qty: item.qty + 1 }
+                : item
+            )
+          : [
+              ...state.listCart,
+              {
+                name: action.payload.name,
+                flag: action.payload.flag,
+                qty: 1,
+              },
+            ],
+      };
+    case REMOVE_FROM_CART:
+      if (inCart) {
+        const qtyCart = inCart.qty;
+        if (qtyCart > 1) {
+          return {
+            ...state,
+            listCart: state.listCart.map((item) =>
+              item.name === action.payload.name
+                ? { ...item, qty: item.qty - 1 }
+                : item
+            ),
+          };
+        } else {
+          const indexOfCart = state.listCart.indexOf(inCart);
+          const deletedCart = state.listCart.splice(indexOfCart, 1);
+          return {
+            ...state,
+            listCart: [...state.listCart],
+          };
+        }
+      }
+      return state
+    default:
+      return state
+  }
+};
 
-export default cartReducer
+export default cartReducer;

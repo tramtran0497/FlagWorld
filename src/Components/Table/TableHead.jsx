@@ -19,7 +19,7 @@ function TableHead({ listItems, displaySortList }) {
   useEffect(() => {
     if (listItems) {
       sortColumn(nameColumn, statusAscend);
-    } 
+    }
   }, [nameColumn, statusAscend]);
 
   const sortColumn = (nameColumn, statusAscend1) => {
@@ -60,72 +60,74 @@ function TableHead({ listItems, displaySortList }) {
     // console.log(
     //   sortedList && sortedList.map((country) => country[nameColumn1])
     // );
-    displaySortList(sortedList)
+    displaySortList(sortedList);
   };
   return (
-    <tr className="list-header-table">
-      <th>FLAG</th>
-      <th onClick={handleChangeIcon}>
-        NAME
-        <div
-          style={{
-            display: show && nameColumn === "NAME" ? "block" : "none",
-          }}
-        >
-          {nameColumn === "NAME" && statusAscend ? (
-            <ArrowUpwardIcon />
-          ) : (
-            <ArrowDownwardIcon />
-          )}
-        </div>
-      </th>
-      <th onClick={handleChangeIcon}>
-        CAPITAL
-        <div
-          style={{
-            display: show && nameColumn === "CAPITAL" ? "block" : "none",
-          }}
-        >
-          {nameColumn === "CAPITAL" && statusAscend ? (
-            <ArrowUpwardIcon />
-          ) : (
-            <ArrowDownwardIcon />
-          )}
-        </div>
-      </th>
+    <thead>
+      <tr className="list-header-table">
+        <th>FLAG</th>
+        <th onClick={handleChangeIcon}>
+          NAME
+          <div
+            style={{
+              display: show && nameColumn === "NAME" ? "block" : "none",
+            }}
+          >
+            {nameColumn === "NAME" && statusAscend ? (
+              <ArrowUpwardIcon />
+            ) : (
+              <ArrowDownwardIcon />
+            )}
+          </div>
+        </th>
+        <th onClick={handleChangeIcon}>
+          CAPITAL
+          <div
+            style={{
+              display: show && nameColumn === "CAPITAL" ? "block" : "none",
+            }}
+          >
+            {nameColumn === "CAPITAL" && statusAscend ? (
+              <ArrowUpwardIcon />
+            ) : (
+              <ArrowDownwardIcon />
+            )}
+          </div>
+        </th>
 
-      <th onClick={handleChangeIcon}>
-        REGION
-        <div
-          style={{
-            display: show && nameColumn === "REGION" ? "block" : "none",
-          }}
-        >
-          {nameColumn === "REGION" && statusAscend ? (
-            <ArrowUpwardIcon />
-          ) : (
-            <ArrowDownwardIcon />
-          )}
-        </div>
-      </th>
-      <th onClick={handleChangeIcon}>
-        POPULATION
-        <div
-          style={{
-            display: show && nameColumn === "POPULATION" ? "block" : "none",
-          }}
-        >
-          {nameColumn === "POPULATION" && statusAscend ? (
-            <ArrowUpwardIcon />
-          ) : (
-            <ArrowDownwardIcon />
-          )}
-        </div>
-      </th>
-      <th>LANGUAGES</th>
-      <th>BUY FLAG</th>
-      <th>FAVORITE</th>
-    </tr>
+        <th onClick={handleChangeIcon}>
+          REGION
+          <div
+            style={{
+              display: show && nameColumn === "REGION" ? "block" : "none",
+            }}
+          >
+            {nameColumn === "REGION" && statusAscend ? (
+              <ArrowUpwardIcon />
+            ) : (
+              <ArrowDownwardIcon />
+            )}
+          </div>
+        </th>
+        <th onClick={handleChangeIcon}>
+          POPULATION
+          <div
+            style={{
+              display: show && nameColumn === "POPULATION" ? "block" : "none",
+            }}
+          >
+            {nameColumn === "POPULATION" && statusAscend ? (
+              <ArrowUpwardIcon />
+            ) : (
+              <ArrowDownwardIcon />
+            )}
+          </div>
+        </th>
+        <th>LANGUAGES</th>
+        <th>BUY FLAG</th>
+        <th>FAVORITE</th>
+      </tr>
+    </thead>
   );
 }
 

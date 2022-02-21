@@ -1,36 +1,22 @@
-import {ADD_TO_CART, ADJUST_QTY, LOAD_CURRENT_ITEM, REMOVE_FROM_CART} from "./cart-types"
+import {ADD_TO_CART, REMOVE_FROM_CART} from "./cart-types"
 
-export const addToCart = (itemName) => {
+export const addToCart = (item) => {
     return {
         type: ADD_TO_CART,
         payload: {
-            name: itemName
+            name: item.name,
+            flag: item.flag,
         }
     }
 }
 
-export const removeFromCart = (itemName) => {
+export const removeFromCart = (item) => {
     return {
         type: REMOVE_FROM_CART,
         payload: {
-            name: itemName
+            name: item.name,
+            flag: item.flag,
         }
     }
 }
 
-export const adjustQty = (itemName, value) => {
-    return {
-        type: ADJUST_QTY,
-        payload: {
-            name: itemName,
-            quantity: value
-        }
-    }
-}
-
-export const loadCurrentItem = (item) => {
-    return {
-        type: LOAD_CURRENT_ITEM,
-        payload: item
-    }
-}
