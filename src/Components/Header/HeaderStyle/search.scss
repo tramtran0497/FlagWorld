@@ -1,0 +1,64 @@
+@import "../../../SCSS/mixins";
+@import "../../../SCSS/_colors.scss";
+
+.search{
+    width: 500px;
+    @include position(relative);
+
+    &__input {
+        @include flex(row, center, center);
+
+        input{
+            width: 80%;
+            padding: 5px 10px;
+            border: 1px solid $primary-light;
+            color: $primary-light;
+            background-color: $primary-color-darker;
+            margin-right: 5px;
+            font-size: 15px;
+
+            &:focus-visible{
+                outline-color: $primary-color-darker;
+                border: none;
+            }
+        }
+
+        button{
+            border: 1px solid $primary-light;
+            color: $primary-light;
+            background-color: transparent;
+            padding: 6px 10px;
+            transition: all 0.25s ease-in;
+            cursor: pointer;
+
+            &:hover{
+                border: 1px solid $primary-light;
+                border-radius: 3px;
+                background-color: $primary-color-darker;
+            }
+        }
+    }
+
+    &__suggestion {
+        
+        height: 400px;
+        overflow: scroll;
+        @include position(absolute);
+        background-color: $primary-color-darker;
+        width: 400px;
+        left: 5px;
+        top: 35px;
+        padding: 5px 10px;
+
+        p{
+            padding: 3px 5px;
+            margin: 5px 0;
+            font-size: 15px;
+
+            &:hover{
+                background-color: $primary-color-lighter;
+            }
+        }
+
+    }
+}

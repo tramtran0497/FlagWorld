@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import NavBar from "../Components/Navbar/Navbar/NavBar";
+import Header from "../Components/Header/Header/Header";
 import TableShowsCountries from "../Components/Table/Table/TableShowCountries";
 import { fetchCountries } from "../Redux/FetchCountries/fetchCountries-actions";
+import "./home.scss"
 
 function Home() {
   const listCountries = useSelector((state) => state.fetch.listCountries);
@@ -35,7 +36,7 @@ function Home() {
 
   return (
     <div>
-      <NavBar searchNameCountries={searchNameCountries} />
+      <Header searchNameCountries={searchNameCountries} />
       <TableShowsCountries
         listItems={displayList}
         loading={loading}

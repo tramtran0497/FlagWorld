@@ -1,9 +1,9 @@
 import React from "react";
-import "../NavbarStyle/NavItems.css";
+import "../HeaderStyle/navbar.scss";
 import CartBadge from "./NavbarItems/CartBadge";
 import FavoriteBadge from "./NavbarItems/FavoriteBadge";
 
-function NavItems() {
+function Navbar() {
   return (
     <div className="nav-items">
       <ul className="nav-items-list">
@@ -16,4 +16,4 @@ function NavItems() {
   );
 }
 
-export default NavItems;
+export default Navbar;

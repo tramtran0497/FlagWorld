@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import "../NavbarStyle/Search.css";
+import "../HeaderStyle/search.scss";
 
 function Search({ searchNameCountries }) {
+  const [isShow, setIsShow] = useState(false)
   const [inputText, setInputText] = useState("");
   const [suggestListName, setSuggestListName] = useState([]);
   const listCountries = useSelector((state) => state.fetch.listCountries);
 
   useEffect(() => {
     if (inputText === "") {
+      setIsShow(false)
       searchNameCountries("");
     }
   }, [inputText, searchNameCountries]);
@@ -22,6 +24,7 @@ function Search({ searchNameCountries }) {
         country.name.toLowerCase().includes(text)
       );
       setSuggestListName(suggestedList);
+      setIsShow(true);
     }
   };
 
@@ -43,20 +46,20 @@ function Search({ searchNameCountries }) {
   const handleSubmit = (event) => {
     searchNameCountries(inputText);
     setSuggestListName([]);
+    setIsShow(false);
   };
   return (
-    <div className="search-field">
-      <div>
+    <div className="search">
+      <div className="search__input">
         <input
           type="text"
-          placeholder="What are you looking for?..."
           onChange={handleChange}
           value={inputText}
           onKeyPress={handleEnter}
         />
         <button onClick={handleSubmit}>Search</button>
       </div>
-      <div>
+      <div className="search__suggestion" style={{display: isShow ? "block" : "none"}} >
         {suggestListName?.map((country) => (
           <p key={country.name} onClick={handleClick}>
             {country.name}
