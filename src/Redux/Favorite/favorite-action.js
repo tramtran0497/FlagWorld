@@ -1,19 +1,10 @@
-import {LIKE, UNLIKE} from './favorite-types'
+import { CLICK } from "./favorite-types";
 
-export const like = (item) => {
-    return{
-        type: LIKE,
-        payload: {
-            name: item.name,
-        }
-    }
-}
-
-export const unLike = (item) => {
-    return{
-        type: UNLIKE,
-        payload: {
-            name: item.name,
-        }
-    }
-}
+export const click = (item) => {
+  return {
+    type: CLICK,
+    payload: {
+      name: item.name,
+    },
+  };
+};

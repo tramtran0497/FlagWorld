@@ -1,3 +1,1 @@
-export const LIKE = "LIKE"
-
-export const UNLIKE = "UNLIKE"
+export const CLICK = "CLICK";

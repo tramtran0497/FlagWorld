@@ -1,33 +1,34 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from "./cart-types";
 
 const INITIAL_STATE = {
-  listCart: [],
+  listCarts: [],
 };
 
-const cartReducer = (state, action) => {
-  state = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : INITIAL_STATE
-  const inCart = state.listCart.find(
-    item => {
-      return item?.name === action.payload?.name
-    }
+const cartReducer = (state = INITIAL_STATE, action) => {
+  state.listCarts = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : INITIAL_STATE.listCarts;
+  const existInCart = state.listCarts?.find(
+    (item) => item.name === action.payload?.name
   );
   switch (action.type) {
     case ADD_TO_CART:
-      if (inCart) {
+      if (existInCart) {
         const newState = {
           ...state,
-          listCart: state.listCart.map((item) =>
+          listCarts: state.listCarts.map((item) =>
             item.name === action.payload.name
               ? { ...item, qty: item.qty + 1 }
               : item
           ),
         };
-        localStorage.setItem("cart", JSON.stringify(newState))
-        return newState
+        localStorage.setItem("cart", JSON.stringify(newState.listCarts));
+        return newState;
       } else {
         const newState = {
           ...state,
-          listCart: [...state.listCart,
+          listCarts: [
+            ...state.listCarts,
             {
               name: action.payload.name,
               flag: action.payload.flag,
@@ -35,32 +36,32 @@ const cartReducer = (state, action) => {
             },
           ],
         };
-        localStorage.setItem("cart", JSON.stringify(newState))
-        return newState
+        localStorage.setItem("cart", JSON.stringify(newState.listCarts));
+        return newState;
       }
     case REMOVE_FROM_CART:
-      if (inCart) {
-        const qtyCart = inCart.qty;
-        if (qtyCart > 1) {
+      if (existInCart) {
+        const qtyOfCart = existInCart.qty;
+        if (qtyOfCart > 1) {
           const newState = {
             ...state,
-            listCart: state.listCart.map((item) =>
+            listCarts: state.listCarts.map((item) =>
               item.name === action.payload.name
                 ? { ...item, qty: item.qty - 1 }
                 : item
             ),
           };
-          localStorage.setItem("cart", JSON.stringify(newState))
-          return newState
+          localStorage.setItem("cart", JSON.stringify(newState.listCarts));
+          return newState;
         } else {
-          const indexOfCart = state.listCart.indexOf(inCart);
-          const deletedCart = state.listCart.splice(indexOfCart, 1);
+          const indexOfCart = state.listCarts.indexOf(existInCart);
+          state.listCarts.splice(indexOfCart, 1);
           const newState = {
             ...state,
-            listCart: [...state.listCart],
+            listCarts: [...state.listCarts],
           };
-          localStorage.setItem("cart", JSON.stringify(newState))
-          return newState
+          localStorage.setItem("cart", JSON.stringify(newState.listCarts));
+          return newState;
         }
       }
       return state;

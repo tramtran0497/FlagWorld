@@ -3,52 +3,46 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 function TableHead({ listItems, displaySortList }) {
-  const [statusAscend, setStatusAscend] = useState(false);
-  const [nameColumn, setNameColumn] = useState("");
-  const [show, setShow] = useState(false);
+  const [asc, setAsc] = useState(false);
+  const [columnName, setColumnName] = useState("");
+  const [isShow, setIsShow] = useState(false);
 
   const handleChangeIcon = (event) => {
     if (!event.target.textContent) return;
-    if (event.target.textContent !== nameColumn) {
-      setShow(true);
+    if (event.target.textContent !== columnName) {
+      setIsShow(true);
     }
-    setNameColumn(event.target.textContent);
-    setStatusAscend(!statusAscend);
+    setColumnName(event.target.textContent);
+    setAsc(!asc);
   };
 
   useEffect(() => {
     if (listItems) {
-      sortColumn(nameColumn, statusAscend);
+      sortColumn(columnName, asc);
     }
-  }, [nameColumn, statusAscend]);
+  },[columnName, asc, listItems]);
 
-  const sortColumn = (nameColumn, statusAscend1) => {
-    const clone = [...listItems];
-    const nameColumn1 = nameColumn.toLowerCase();
+  const sortColumn = (columnName, asc) => {
+    const cloneList = [...listItems];
+    const name = columnName.toLowerCase();
     const sortedList =
-      clone &&
-      clone.sort((a, b) => {
-        if (
-          typeof a[nameColumn1] === "number" &&
-          typeof b[nameColumn1] === "number"
-        ) {
-          if (statusAscend1) {
-            return a[nameColumn1] - b[nameColumn1];
+      cloneList &&
+      cloneList.sort((a, b) => {
+        if (typeof a[name] === "number" && typeof b[name] === "number") {
+          if (asc) {
+            return a[name] - b[name];
           } else {
-            return b[nameColumn1] - a[nameColumn1];
+            return b[name] - a[name];
           }
-        } else if (
-          typeof a[nameColumn1] === "string" &&
-          typeof b[nameColumn1] === "string"
-        ) {
-          let characterA = a[nameColumn1] && a[nameColumn1].toLowerCase();
-          let characterB = b[nameColumn1] && b[nameColumn1].toLowerCase();
-          if (!statusAscend1) {
+        } else if (typeof a[name] === "string" && typeof b[name] === "string") {
+          let characterA = a[name] && a[name].toLowerCase();
+          let characterB = b[name] && b[name].toLowerCase();
+          if (!asc) {
             if (characterA < characterB) return 1;
             if (characterA > characterB) return -1;
             else return 0;
           }
-          if (statusAscend1) {
+          if (asc) {
             if (characterA < characterB) return -1;
             if (characterA > characterB) return 1;
             else return 0;
@@ -57,23 +51,21 @@ function TableHead({ listItems, displaySortList }) {
           return 0;
         }
       });
-    // console.log(
-    //   sortedList && sortedList.map((country) => country[nameColumn1])
-    // );
+
     displaySortList(sortedList);
   };
   return (
     <thead>
-      <tr className="list-header-table">
+      <tr className="table-header">
         <th>FLAG</th>
         <th onClick={handleChangeIcon}>
           NAME
           <div
             style={{
-              display: show && nameColumn === "NAME" ? "block" : "none",
+              display: isShow && columnName === "NAME" ? "block" : "none",
             }}
           >
-            {nameColumn === "NAME" && statusAscend ? (
+            {columnName === "NAME" && asc ? (
               <ArrowUpwardIcon />
             ) : (
               <ArrowDownwardIcon />
@@ -84,10 +76,10 @@ function TableHead({ listItems, displaySortList }) {
           CAPITAL
           <div
             style={{
-              display: show && nameColumn === "CAPITAL" ? "block" : "none",
+              display: isShow && columnName === "CAPITAL" ? "block" : "none",
             }}
           >
-            {nameColumn === "CAPITAL" && statusAscend ? (
+            {columnName === "CAPITAL" && asc ? (
               <ArrowUpwardIcon />
             ) : (
               <ArrowDownwardIcon />
@@ -99,10 +91,10 @@ function TableHead({ listItems, displaySortList }) {
           REGION
           <div
             style={{
-              display: show && nameColumn === "REGION" ? "block" : "none",
+              display: isShow && columnName === "REGION" ? "block" : "none",
             }}
           >
-            {nameColumn === "REGION" && statusAscend ? (
+            {columnName === "REGION" && asc ? (
               <ArrowUpwardIcon />
             ) : (
               <ArrowDownwardIcon />
@@ -113,10 +105,10 @@ function TableHead({ listItems, displaySortList }) {
           POPULATION
           <div
             style={{
-              display: show && nameColumn === "POPULATION" ? "block" : "none",
+              display: isShow && columnName === "POPULATION" ? "block" : "none",
             }}
           >
-            {nameColumn === "POPULATION" && statusAscend ? (
+            {columnName === "POPULATION" && asc ? (
               <ArrowUpwardIcon />
             ) : (
               <ArrowDownwardIcon />

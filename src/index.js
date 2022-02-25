@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import {Provider} from "react-redux"
-import store from "./Redux/store"
+import { Provider } from "react-redux";
+import store from "./Redux/store";
 import ThemeProvider from "./useContext/ThemeContext";
 
 ReactDOM.render(

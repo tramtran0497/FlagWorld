@@ -1,14 +1,14 @@
-import React from 'react'
-import CardCountry from '../Components/Card/CardCountry'
-import NavBar from '../Components/Navbar/NavBar'
+import React from "react";
+import CardCountry from "../Components/Card/CardCountry";
+import NavBar from "../Components/Navbar/Navbar/NavBar";
 
 function Country() {
   return (
     <div>
-        <NavBar/>
-        <CardCountry />
+      <NavBar />
+      <CardCountry />
     </div>
-  )
+  );
 }
 
-export default Country
+export default Country;

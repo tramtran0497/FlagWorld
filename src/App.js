@@ -1,22 +1,24 @@
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
-import ViewCountries from "./Pages/ViewCountries";
-import Country from"./Pages/Country";
-import HeartIcon from "./Pages/HeartIcon";
+import Home from "./Pages/Home.jsx";
+//import Country from "./Pages/Country";
 import { useContext } from "react";
 import { ThemeContext } from "./useContext/ThemeContext";
 
-
 function App() {
-  // <Route path="heartIcon" element={<HeartIcon />} />
   // <Route path="country/:name" element={<Country />} />
-  const darkTheme = useContext(ThemeContext)
+  const darkTheme = useContext(ThemeContext);
 
   return (
-    <div style={{backgroundColor: darkTheme ? "black": "white", color: darkTheme ? "white": "black"}}>
+    <div
+      style={{
+        backgroundColor: darkTheme ? "black" : "white",
+        color: darkTheme ? "white" : "black",
+      }}
+    >
       <Routes>
-        <Route path="/" element={<ViewCountries />} />
-        <Route path="*" element={<Navigate to ="/" />}/>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
