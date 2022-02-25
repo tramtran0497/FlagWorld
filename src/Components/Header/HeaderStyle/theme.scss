@@ -1,0 +1,26 @@
+@import "../../../SCSS/mixins";
+@import "../../../SCSS/_colors.scss";
+
+.theme{
+   width: 100px;
+   height: 50px;
+   @include flex(row, space-around, center);
+
+   &__oval{
+       width: 30%;
+       height: 30%;
+       background-color: $primary-color-darker;
+       border: 1px solid $primary-light;
+       border-radius: 20px;
+       margin: 0 5px;
+       display: flex;
+       align-items: center;
+
+       &__btn{
+           width: 13px;
+           height: 13px;
+           background-color: $primary-light;
+           border-radius: 50%;
+       }
+   }
+}
