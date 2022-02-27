@@ -5,6 +5,7 @@ export const click = (item) => {
     type: CLICK,
     payload: {
       name: item.name,
+      flag: item.flag,
     },
   };
 };

@@ -5,11 +5,11 @@ import FavoriteBadge from "./NavbarItems/FavoriteBadge";
 
 function Navbar() {
   return (
-    <div className="nav-items">
-      <ul className="nav-items-list">
+    <div className="navbar">
+      <ul className="navbar__list">
         <li>Home</li>
         <li>Contact</li>
-        <FavoriteBadge />
+        <FavoriteBadge/>
         <CartBadge />
       </ul>
     </div>

@@ -3,7 +3,7 @@
 
 .search{
     width: 500px;
-    @include position(relative);
+    position: relative;
 
     &__input {
         @include flex(row, center, center);
@@ -43,11 +43,10 @@
         
         height: 400px;
         overflow: scroll;
-        @include position(absolute);
+        @include position(absolute, 35px);
         background-color: $primary-color-darker;
         width: 400px;
         left: 5px;
-        top: 35px;
         padding: 5px 10px;
 
         p{

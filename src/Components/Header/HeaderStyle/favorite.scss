@@ -1,0 +1,47 @@
+@import "../../../SCSS/mixins";
+@import "../../../SCSS/_colors.scss";
+
+.favorite{
+    position: relative;
+
+    &__badge{
+        &__icon{
+            color: $primary-light !important;
+        }
+    }
+
+    &__list{
+        border-radius: 15px;
+        overflow: scroll;
+        height: 400px;
+        width: 270px;
+        background-color: $primary-color-darkest;
+        opacity: .85;
+        @include position(absolute, 30px);
+        right: 0px;
+
+        &__display{
+            width: 250px;
+            padding: 10px;
+            @include flex(row, space-between, center);
+
+            img{
+                width: 20%;
+                @include image(content, 30px, 30px);
+                
+            }
+
+            h4{
+                width: 65%;
+            }
+
+            &__icon{
+                width: 15%;
+            }
+            
+        }
+    }
+    
+
+   
+}

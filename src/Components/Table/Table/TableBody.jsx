@@ -3,7 +3,7 @@ import TableRows from "./TableRows";
 
 function TableBody({ listItems }) {
   return (
-    <tbody>
+    <tbody className="tableRows">
       {listItems &&
         listItems.map((item) => <TableRows key={item.name} item={item} />)}
     </tbody>

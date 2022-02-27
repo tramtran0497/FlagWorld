@@ -5,15 +5,15 @@
     align-items: $ali;
 }
 
-@mixin position($position) {
+@mixin position($position, $top) {
     position: $position;
-    left: 0;
-    top: 0;
+    top: $top;
 }
 
-@mixin image($objFit) {
+@mixin image($objFit, $wth, $hgt) {
     object-fit: $objFit;
-    width: 100%;
-    height: 100%;
+    width: $wth;
+    height: $hgt;
+    border-radius: 50%;
     overflow: hidden;
 }

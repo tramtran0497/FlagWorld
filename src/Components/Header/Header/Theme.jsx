@@ -14,7 +14,7 @@ function Theme() {
       <div className="theme__oval" onClick={toggleTheme} >
         <div className="theme__oval__btn" style={{transform: darkTheme ? "translate(16px)" : "translate(0px)"}}></div>
       </div>
-      <DarkModeIcon style={{color: "black"}}/>
+      <DarkModeIcon/>
     </div>
   );
 }

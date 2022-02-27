@@ -1,9 +1,20 @@
-.nav-items{
-    width: 30%
-}
-.nav-items-list{
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+@import "../../../SCSS/mixins";
+@import "../../../SCSS/_colors.scss";
+
+.navbar{
+    width: 300px;
+    &__list{
+        width: 100%;
+        @include flex(row, space-around, center);
+
+        li{
+            list-style: none;
+            transition: all .75s ease-in;
+            cursor: pointer;
+            
+            &:hover{
+                border-bottom: 1px solid $primary-light;
+            }
+        }
+    }
 }

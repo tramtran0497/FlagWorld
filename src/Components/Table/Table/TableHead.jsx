@@ -55,8 +55,8 @@ function TableHead({ listItems, displaySortList }) {
     displaySortList(sortedList);
   };
   return (
-    <thead>
-      <tr className="table-header">
+    <thead className="tableHead">
+      <tr className="tableHead__list">
         <th>FLAG</th>
         <th onClick={handleChangeIcon}>
           NAME

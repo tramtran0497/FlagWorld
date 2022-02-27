@@ -7,13 +7,13 @@
         content: "";
         background-color: $primary-color;
         opacity: 0.75;
-        @include position(absolute);
+        position: absolute;
         z-index: -1;
     }
 
     color: $primary-light;
     width: 100%;
     @include flex(row, space-around, center);
-    @include position(fixed);
+    position: fixed;
 
 }

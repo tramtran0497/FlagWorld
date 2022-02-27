@@ -16,7 +16,7 @@ function TableShowsCountries({ listItems, loading, error }) {
     setDisplayList(list);
   };
   return (
-    <table>
+    <table className="table">
       <TableHead listItems={listItems} displaySortList={displaySortList} />
       <TableBody listItems={displayList} />
     </table>

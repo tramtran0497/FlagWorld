@@ -41,7 +41,7 @@ function TableRows({ item }) {
   };
 
   return (
-    <tr>
+    <tr className="tableRow">
       <td>
         <img src={item.flag} alt={item.name} />
       </td>

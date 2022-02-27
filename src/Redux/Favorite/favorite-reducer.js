@@ -29,7 +29,8 @@ const favoriteReducer = (state, action) => {
           listFavorites: [
             ...state.listFavorites,
             {
-              name: action.payload.name
+              name: action.payload.name,
+              flag: action.payload.flag,
             },
           ],
         };
