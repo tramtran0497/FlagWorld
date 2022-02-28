@@ -2,9 +2,7 @@ import React from "react";
 import TableRow from "./TableRow";
 import "../TableStyle/tableBody.scss";
 
-
 function TableBody({ listItems }) {
-  
   return (
     <tbody className="tableBody">
       {listItems &&

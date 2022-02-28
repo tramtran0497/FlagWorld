@@ -1,8 +1,0 @@
-@import "./SCSS/colors";
-@import "./SCSS/mixins";
-
-.app{
-    @include flex(row, center, center); 
-    margin-top: 56px; 
-    padding-top: 25px;  
-}

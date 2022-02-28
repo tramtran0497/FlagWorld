@@ -42,7 +42,7 @@ function TableRow({ item }) {
 
   return (
     <tr className="tableRow">
-      <td  className="tableRow__img">
+      <td className="tableRow__img">
         <img src={item.flag} alt={item.name} />
       </td>
       <td className="tableRow__name">{item.name}</td>
@@ -54,14 +54,20 @@ function TableRow({ item }) {
           item.languages.map((language) => <p key={language}>{language}</p>)}
       </td>
       <td className="tableRow__quantity">
-        <Remove onClick={handleRemove} />
-        <p>{quantity}</p>
-        <Add onClick={handleAdd} />
+        <div>
+          <Remove
+            onClick={handleRemove}
+            className="tableRow__quantity__removeIcon"
+          />
+          <p>{quantity}</p>
+          <Add onClick={handleAdd} className="tableRow__quantity__addIcon" />
+        </div>
       </td>
       <td className="tableRow__favorite">
         <Favorite
           onClick={handleLove}
           style={{ color: isLove ? "red" : "gray" }}
+          className="tableRow__favorite__icon"
         />
       </td>
     </tr>

@@ -21,7 +21,7 @@ function TableHead({ listItems, displaySortList }) {
     if (listItems) {
       sortColumn(columnName, asc);
     }
-  },[columnName, asc, listItems]);
+  }, [columnName, asc, listItems]);
 
   const sortColumn = (columnName, asc) => {
     const cloneList = [...listItems];

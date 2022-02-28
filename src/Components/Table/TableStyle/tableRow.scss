@@ -1,24 +1,36 @@
 @import "../../../SCSS/mixins";
 @import "../../../SCSS/_colors.scss";
 
-.tableRow{
+.tableRow {
+  border-bottom: 1px solid $primary-color-darker;
 
-    td{
-        width: calc(100%/8);
-        text-align: center;
-        padding: 20px 0;
-        height: 50px;
+  td {
+    width: calc(100% / 8);
+    text-align: center;
+    padding: 20px 0;
+    height: 50px;
+  }
+
+  &__img {
+    img {
+      @include image(content, 50px, 50px);
+    }
+  }
+
+  &__quantity {
+    &__removeIcon,
+    &__addIcon {
+      cursor: pointer;
     }
 
-    &__img{
-        img{
-            @include image(content, 50px, 50px)
-        }
+    div {
+      @include flex(row, space-around, center);
     }
+  }
 
-    &__quantity{
-        @include flex(row, space-between, center);
-        margin: 0 40px;
+  &__favorite {
+    &__icon {
+      cursor: pointer;
     }
-
+  }
 }

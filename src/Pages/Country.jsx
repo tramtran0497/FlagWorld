@@ -1,12 +1,11 @@
 import React from "react";
-import CardCountry from "../Components/Card/CardCountry";
-import NavBar from "../Components/Navbar/Navbar/NavBar";
+
 
 function Country() {
   return (
     <div>
-      <NavBar />
-      <CardCountry />
+     country here!
+      
     </div>
   );
 }

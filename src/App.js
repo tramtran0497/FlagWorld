@@ -1,13 +1,13 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
-//import Country from "./Pages/Country";
+import Country from "./Pages/Country";
 import { ThemeContext } from "./useContext/ThemeContext";
-import "./app.scss";
+import "./SCSS/app.scss";
 import { BrowserRouter } from "react-router-dom";
 
 import Header from "./Components/Header/Header/Header.jsx";
 import { useSelector } from "react-redux";
-import React, {useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { fetchCountries } from "./Redux/FetchCountries/fetchCountries-actions";
 import { useDispatch } from "react-redux";
 
@@ -28,11 +28,10 @@ function App() {
   }, [listCountries]);
 
   useEffect(() => {
-    //console.log("hello");
+    //console
   });
-  // <Route path="country/:name" element={<Country />} />
+
   const searchNameCountries = (inputText) => {
-    // console.log("inputtextinApp",inputText)
     if (!inputText) {
       setDisplayList(listCountries);
     } else {
@@ -45,7 +44,7 @@ function App() {
   };
   return (
     <div>
-      <Header searchNameCountries={searchNameCountries}/>
+      <Header searchNameCountries={searchNameCountries} />
       <BrowserRouter>
         <React.StrictMode>
           <div
@@ -56,7 +55,17 @@ function App() {
             className="app"
           >
             <Routes>
-              <Route path="/" element={<Home loading={loading} error={error} displayList={displayList} />} />
+              <Route
+                path="/"
+                element={
+                  <Home
+                    loading={loading}
+                    error={error}
+                    displayList={displayList}
+                  />
+                }
+              />
+              <Route path="country/:name" element={<Country />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>

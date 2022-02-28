@@ -1,7 +1,8 @@
 @import "../../../SCSS/mixins";
 @import "../../../SCSS/_colors.scss";
 
-.table{
-   
-    
+.table {
+  width: 100%;
+  border-bottom: 1px solid $primary-color;
+  border-collapse: collapse;
 }

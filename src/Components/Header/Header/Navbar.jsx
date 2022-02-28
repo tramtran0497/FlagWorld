@@ -4,6 +4,8 @@ import CartBadge from "./NavbarItems/CartBadge";
 import FavoriteBadge from "./NavbarItems/FavoriteBadge";
 
 function Navbar() {
+  
+
   return (
     <div className="navbar">
       <ul className="navbar__list">
