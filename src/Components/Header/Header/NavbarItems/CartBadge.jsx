@@ -6,7 +6,7 @@ import "../../HeaderStyle/cart.scss";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../../../Redux/Cart/cart-action";
 
-function CartBadge() {
+function CartBadge({disabledCart, toggleDisabled}) {
   const [isShow, setIsShow] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const { listCarts } = useSelector((state) => state.cart);
@@ -24,7 +24,10 @@ function CartBadge() {
     }
   }, [listCarts]);
 
-  const handleShow = () => setIsShow(!isShow);
+  const handleShow = () => {
+    setIsShow(!isShow)
+    toggleDisabled("cart")
+  };
 
   const handleAdd = (cart) => {
     dispatch(addToCart(cart));
@@ -34,7 +37,7 @@ function CartBadge() {
     dispatch(removeFromCart(cart));
   };
   return (
-    <div className="cart">
+    <div className="cart" style={disabledCart ? {pointerEvents: "none", opacity: "0.4"} : {}}>
       <Badge
         badgeContent={quantity}
         color="secondary"

@@ -6,19 +6,22 @@ import { useSelector } from "react-redux";
 import "../../HeaderStyle/favorite.scss";
 import { click } from "../../../../Redux/Favorite/favorite-action";
 
-function FavoriteBadge() {
+function FavoriteBadge({toggleDisabled, disabledFavorite}) {
   const [isShow, setIsShow] = useState(false);
   const { listFavorites } = useSelector((state) => state.favorite);
   const dispatch = useDispatch();
 
-  const handleShow = () => setIsShow(!isShow);
+  const handleShow = () => {
+    setIsShow(!isShow)
+    toggleDisabled("favorite")
+  };
 
   const handleLove = (favorite) => {
     dispatch(click(favorite));
   };
 
   return (
-    <div className="favorite">
+    <div className="favorite" style={disabledFavorite ? {pointerEvents: "none", opacity: "0.4"} : {}}>
       <Badge
         badgeContent={listFavorites?.length}
         color="secondary"
