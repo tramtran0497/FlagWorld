@@ -1,42 +1,42 @@
-import React, { useEffect, useState } from "react";
+
+import React, {useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Header from "../Components/Header/Header/Header";
 import TableShowsCountries from "../Components/Table/Table/TableShowCountries";
 import { fetchCountries } from "../Redux/FetchCountries/fetchCountries-actions";
-import "./home.scss"
+import "./home.scss";
 
-function Home() {
-  const listCountries = useSelector((state) => state.fetch.listCountries);
-  const loading = useSelector((state) => state.fetch.loading);
-  const error = useSelector((state) => state.fetch.error);
-  const dispatch = useDispatch();
+function Home({displayList, loading, error}) {
+  // const listCountries = useSelector((state) => state.fetch.listCountries);
+  // const loading = useSelector((state) => state.fetch.loading);
+  // const error = useSelector((state) => state.fetch.error);
+  // const dispatch = useDispatch();
 
-  const [displayList, setDisplayList] = useState([]);
+  // const [displayList, setDisplayList] = useState([]);
 
-  useEffect(() => {
-    dispatch(fetchCountries());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchCountries());
+  // }, []);
 
-  useEffect(() => {
-    setDisplayList(listCountries);
-  }, [listCountries]);
+  // useEffect(() => {
+  //   setDisplayList(listCountries);
+  // }, [listCountries]);
 
-  const searchNameCountries = (inputText) => {
-    if (!inputText) {
-      setDisplayList(listCountries);
-    } else {
-      const text = inputText.toLowerCase();
-      const searchedList = listCountries.filter((country) =>
-        country.name.toLowerCase().includes(text)
-      );
-      setDisplayList(searchedList);
-    }
-  };
+  // const searchNameCountries = (inputText) => {
+  //   if (!inputText) {
+  //     setDisplayList(listCountries);
+  //   } else {
+  //     const text = inputText.toLowerCase();
+  //     const searchedList = listCountries.filter((country) =>
+  //       country.name.toLowerCase().includes(text)
+  //     );
+  //     setDisplayList(searchedList);
+  //   }
+  // };
 
   return (
-    <div>
-      <Header searchNameCountries={searchNameCountries} />
+    <div className="home">
       <TableShowsCountries
         listItems={displayList}
         loading={loading}

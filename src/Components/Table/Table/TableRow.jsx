@@ -1,11 +1,11 @@
 import { Add, Favorite, Remove } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "../TableStyle/TableRows.css";
+import "../TableStyle/tableRow.scss";
 import { addToCart, removeFromCart } from "../../../Redux/Cart/cart-action";
 import { click } from "../../../Redux/Favorite/favorite-action";
 
-function TableRows({ item }) {
+function TableRow({ item }) {
   const [isLove, setIsLove] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const { listCarts } = useSelector((state) => state.cart);
@@ -42,23 +42,23 @@ function TableRows({ item }) {
 
   return (
     <tr className="tableRow">
-      <td>
+      <td  className="tableRow__img">
         <img src={item.flag} alt={item.name} />
       </td>
-      <td>{item.name}</td>
-      <td>{item.capital}</td>
-      <td>{item.region}</td>
-      <td>{item.population}</td>
-      <td>
+      <td className="tableRow__name">{item.name}</td>
+      <td className="tableRow__capital">{item.capital}</td>
+      <td className="tableRow__region">{item.region}</td>
+      <td className="tableRow__population">{item.population}</td>
+      <td className="tableRow__languages">
         {item.languages &&
           item.languages.map((language) => <p key={language}>{language}</p>)}
       </td>
-      <td className="quantity">
+      <td className="tableRow__quantity">
         <Remove onClick={handleRemove} />
         <p>{quantity}</p>
         <Add onClick={handleAdd} />
       </td>
-      <td>
+      <td className="tableRow__favorite">
         <Favorite
           onClick={handleLove}
           style={{ color: isLove ? "red" : "gray" }}
@@ -68,4 +68,4 @@ function TableRows({ item }) {
   );
 }
 
-export default TableRows;
+export default TableRow;

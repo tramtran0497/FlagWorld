@@ -9,6 +9,7 @@ function Search({ searchNameCountries }) {
   const listCountries = useSelector((state) => state.fetch.listCountries);
 
   useEffect(() => {
+    
     if (inputText === "") {
       setIsShow(false)
       searchNameCountries("");

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import "../TableStyle/tableHead.scss";
 
 function TableHead({ listItems, displaySortList }) {
   const [asc, setAsc] = useState(false);

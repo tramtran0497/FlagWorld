@@ -1,3 +1,6 @@
+@import "../SCSS/colors";
+@import "../SCSS/mixins";
+
 body {
     margin: 0;
     padding: 0px;
@@ -5,4 +8,8 @@ body {
 
 html {
     font-family: 'Roboto', sans-serif;
+}
+
+.home{
+    width: 85%;
 }

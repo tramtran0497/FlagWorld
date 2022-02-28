@@ -1,0 +1,31 @@
+@import "../../../SCSS/mixins";
+@import "../../../SCSS/_colors.scss";
+
+.tableHead{
+    color: $primary-color-darker !important;
+
+    &__list{
+        width: 100%;
+        text-align: center;
+       
+        th{
+            width: calc(100%/8);
+            border-bottom: 1px solid $primary-color-darker;
+            position: relative; 
+
+            div{
+                @include position(absolute, 0px);
+                right: 0px;
+            }
+        }
+
+       
+            
+
+        
+
+
+       
+    }
+
+}

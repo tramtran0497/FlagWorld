@@ -3,7 +3,7 @@
 .header{
     &::before {
         width: 100vw;
-        height: 5rem;
+        height: 56px;
         content: "";
         background-color: $primary-color;
         opacity: 0.75;
@@ -15,5 +15,7 @@
     width: 100%;
     @include flex(row, space-around, center);
     position: fixed;
+    z-index: 2;
+    top: 0px;
 
 }

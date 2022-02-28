@@ -1,11 +1,14 @@
 import React from "react";
-import TableRows from "./TableRows";
+import TableRow from "./TableRow";
+import "../TableStyle/tableBody.scss";
+
 
 function TableBody({ listItems }) {
+  
   return (
-    <tbody className="tableRows">
+    <tbody className="tableBody">
       {listItems &&
-        listItems.map((item) => <TableRows key={item.name} item={item} />)}
+        listItems.map((item) => <TableRow key={item.name} item={item} />)}
     </tbody>
   );
 }

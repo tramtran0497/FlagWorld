@@ -1,6 +1,7 @@
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 import { useEffect, useState } from "react";
+import "../TableStyle/tableShowsCountries.scss";
 
 function TableShowsCountries({ listItems, loading, error }) {
   const [displayList, setDisplayList] = useState(listItems);
