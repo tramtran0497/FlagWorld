@@ -1,0 +1,7 @@
+@import "../SCSS/colors";
+@import "../SCSS/mixins";
+
+.country {
+  width: 100%;
+  @include flex(row, center, center);
+}

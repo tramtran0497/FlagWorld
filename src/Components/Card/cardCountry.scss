@@ -1,0 +1,65 @@
+@import "../../SCSS/mixins";
+@import "../../SCSS/colors";
+
+.cardCountry {
+  width: 30%;
+  @include flex(column, "", center);
+  border: 2px solid $primary-color-lightest;
+  border-radius: 25px;
+
+  h1 {
+    font-size: 40px;
+    font-weight: 400;
+    height: fit-content;
+    width: fit-content;
+    text-align: center
+  }
+
+  &__img {
+    img {
+      @include image(content, 300px, 200px);
+      border-radius: 0px;
+    }
+  }
+
+  &__detailsInfo {
+    width: 60%;
+    margin: 20px 0;
+    &__icon {
+      @include flex(row, space-between, flex-end);
+      border-bottom: 2px solid $primary-color-lighter;
+
+      p {
+        margin: 0;
+        margin-bottom: 5px;
+      }
+    }
+
+    &__displayInfo {
+      &__languages {
+        ul {
+          list-style: none;
+        }
+      }
+
+      div {
+        width: 100%;
+        @include flex(row, space-between, center);
+        border-bottom: 1px solid $primary-color-lightest;
+      }
+    }
+  }
+
+  &__purchase {
+    width: 60%;
+    @include flex(row, space-between, center);
+    div {
+      @include flex(row, space-around, center);
+    }
+  }
+
+  &__favorite {
+    width: 60%;
+    @include flex(row, space-between, center);
+  }
+}

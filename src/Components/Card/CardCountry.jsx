@@ -1,93 +1,121 @@
 import React, { useEffect, useState } from "react";
-import { useCountry } from "../../custom-hooks/useCountry";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { styled } from "@mui/material/styles";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Input, Button } from '@mui/material'
-
-
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+import { fetchCountry } from "../../Redux/FetchCountry/fetchCountry-actions";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+import { Favorite } from "@mui/icons-material";
+import "./cardCountry.scss";
+import { addToCart, removeFromCart } from "../../Redux/Cart/cart-action";
+import { click } from "../../Redux/Favorite/favorite-action";
 
 function CardCountry() {
-  const [expanded, setExpanded] = useState(false);
   const { name } = useParams();
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-  const { country, loadingCountry, errorCountry } = useCountry(name);
+  const { country } = useSelector((state) => state.fetchCountry);
+  const dispatch = useDispatch();
+  const [isShow, setIsShow] = useState(false);
+  const { listCarts } = useSelector((state) => state.cart);
+  const { listFavorites } = useSelector((state) => state.favorite);
+  const [quantity, setQuantity] = useState(0);
+  const [isLove, setIsLove] = useState(false);
 
   useEffect(() => {
-    //console.log(country && country.name)
-    console.log("name", name);
-  });
+    const foundCart = listCarts?.find((cart) => cart.name === country.name);
+    if (foundCart) {
+      setQuantity(foundCart.qty);
+    } else {
+      setQuantity(0);
+    }
+  }, [listCarts, country]);
 
-  if (loadingCountry) return <h1>Loading...</h1>;
-  if (errorCountry) console.log("Something went wrong...", errorCountry);
+  useEffect(() => {
+    const exist =
+      listFavorites &&
+      listFavorites.find((favorite) => favorite.name === country.name);
+    setIsLove(!!exist);
+  }, [listFavorites, country]);
 
+  useEffect(() => {
+    dispatch(fetchCountry(name));
+  }, []);
+
+  useEffect(() => {console.log(country.name)});
+
+  const handleClick = () => {
+    setIsShow(!isShow);
+  };
+
+  const handleRemove = (item) => {
+    dispatch(removeFromCart(item));
+  };
+
+  const handleAdd = (item) => {
+    dispatch(addToCart(item));
+  };
+
+  const handleLove = (item) => {
+    dispatch(click(item));
+  };
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader title={country && country.name} />
-      <CardMedia
-        component="img"
-        height="194"
-        image={country && country.flag}
-        alt="Flag"
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          Hello, This is {country && country.name}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
+    <div className="cardCountry">
+      <h1>{country.name}</h1>
+      <div className="cardCountry__img">
+        <img src={country.flag} alt={`${country.name} flag`} />
+      </div>
+      <div className="cardCountry__detailsInfo">
+        <div className="cardCountry__detailsInfo__icon">
+          <p>More details</p>
+          <ArrowDropDownIcon onClick={handleClick} />
+        </div>
+        <div
+          className="cardCountry__detailsInfo__displayInfo"
+          style={{ display: isShow ? "block" : "none" }}
         >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Details:</Typography>
-          <Typography paragraph>
-            {country && country.capital}, {country && country.region},{" "}
-            {country &&
-              country.languages.map((language) => (
-                <span key={language}>{language}</span>
-            ))}
-            <Input type="number"></Input>
-            <Button variant="outlined">Add Cart</Button>
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
+          <div>
+            <p>Capital: </p>
+            <p>{country.capital}</p>
+          </div>
+          <div>
+            <p>Region: </p>
+            <p>{country.region}</p>
+          </div>
+          <div>
+            <p>Population: </p>
+            <p>{country.population}</p>
+          </div>
+          <div className="cardCountry__detailsInfo__displayInfo__languages">
+            <p>Languages: </p>
+            <ul>
+              {country.languages &&
+                country.languages.map((language) => (
+                  <li key={language}>{language}</li>
+                ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="cardCountry__purchase">
+        <p>Your current quantity :</p>
+        <div>
+          <RemoveIcon onClick={() => handleRemove(country)} />
+          <p> {quantity} </p>
+          <AddIcon onClick={() => handleAdd(country)} />
+        </div>
+      </div>
+      <div className="cardCountry__favorite">
+        {isLove ? (
+          <p>I love {country.name}</p>
+        ) : (
+          <p>Add to your favorite list</p>
+        )}
+        <Favorite
+          className="cardCountry__favorite__icon"
+          onClick={() => handleLove(country)}
+          style={{ color: isLove ? "red" : "gray" }}
+        />
+      </div>
+    </div>
   );
 }
 

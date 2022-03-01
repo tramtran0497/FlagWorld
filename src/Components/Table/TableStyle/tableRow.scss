@@ -11,6 +11,13 @@
     height: 50px;
   }
 
+  &__name {
+    a {
+      cursor: pointer;
+      color: $primary-color-lightest;
+    }
+  }
+
   &__img {
     img {
       @include image(content, 50px, 50px);

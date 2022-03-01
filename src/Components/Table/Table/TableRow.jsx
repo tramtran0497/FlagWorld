@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "../TableStyle/tableRow.scss";
 import { addToCart, removeFromCart } from "../../../Redux/Cart/cart-action";
 import { click } from "../../../Redux/Favorite/favorite-action";
+import { Link } from "react-router-dom";
 
 function TableRow({ item }) {
   const [isLove, setIsLove] = useState(false);
@@ -45,7 +46,11 @@ function TableRow({ item }) {
       <td className="tableRow__img">
         <img src={item.flag} alt={item.name} />
       </td>
-      <td className="tableRow__name">{item.name}</td>
+
+      <td className="tableRow__name">
+        <Link to={`/country/${item.name}`}>{item.name} </Link>
+      </td>
+
       <td className="tableRow__capital">{item.capital}</td>
       <td className="tableRow__region">{item.region}</td>
       <td className="tableRow__population">{item.population}</td>

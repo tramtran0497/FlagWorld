@@ -9,7 +9,7 @@ export const fetchCountries = () => async (dispatch) => {
     dispatch({
       type: FETCH_COUNTRIES_REQUEST,
     });
-    const url = "https://restcountries.com/v3.1/all";
+    const url = `https://restcountries.com/v3.1/all`;
     const responseAPI = await fetch(url);
     const responseJSON = await responseAPI.json();
     const listCountries = responseJSON.map((country) => {

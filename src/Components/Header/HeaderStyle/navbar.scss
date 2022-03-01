@@ -6,7 +6,7 @@
     &__list{
         width: 100%;
         @include flex(row, space-around, center);
-
+        
         li{
             list-style: none;
             transition: all .75s ease-in;
@@ -15,6 +15,9 @@
             &:hover{
                 border-bottom: 1px solid $primary-light;
             }
+        
         }
+
+       
     }
 }
