@@ -22,6 +22,12 @@
                 border-bottom: 2px solid $primary-light;
             }
         }
+
+        &__contact{
+            color: $primary-light;
+            text-decoration: none;
+
+        }
         
         li{
             list-style: none;

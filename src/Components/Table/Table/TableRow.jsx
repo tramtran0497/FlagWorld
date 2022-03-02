@@ -5,6 +5,7 @@ import "../TableStyle/tableRow.scss";
 import { addToCart, removeFromCart } from "../../../Redux/Cart/cart-action";
 import { click } from "../../../Redux/Favorite/favorite-action";
 import { Link } from "react-router-dom";
+import variables from "../../../SCSS/variables.module.scss";
 
 function TableRow({ item }) {
   const [isLove, setIsLove] = useState(false);
@@ -71,7 +72,11 @@ function TableRow({ item }) {
       <td className="tableRow__favorite">
         <Favorite
           onClick={handleLove}
-          style={{ color: isLove ? "red" : "gray" }}
+          style={{
+            color: isLove
+              ? variables.primaryColor
+              : variables.primaryDarkLighter,
+          }}
           className="tableRow__favorite__icon"
         />
       </td>

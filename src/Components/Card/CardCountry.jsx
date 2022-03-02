@@ -9,6 +9,7 @@ import { Favorite } from "@mui/icons-material";
 import "./cardCountry.scss";
 import { addToCart, removeFromCart } from "../../Redux/Cart/cart-action";
 import { click } from "../../Redux/Favorite/favorite-action";
+import variables from "../../SCSS/variables.module.scss";
 
 function CardCountry() {
   const { name } = useParams();
@@ -112,7 +113,11 @@ function CardCountry() {
         <Favorite
           className="cardCountry__favorite__icon"
           onClick={() => handleLove(country)}
-          style={{ color: isLove ? "red" : "gray" }}
+          style={{
+            color: isLove
+              ? variables.primaryColor
+              : variables.primaryDarkLighter,
+          }}
         />
       </div>
     </div>

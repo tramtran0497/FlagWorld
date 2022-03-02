@@ -5,22 +5,22 @@ import "../HeaderStyle/header.scss";
 import Theme from "./Theme";
 import { useLocation } from "react-router-dom";
 
-function Header({ searchNameCountries, currentPath}) {
-  const location = useLocation()
-  const [isActive, setIsActive] = useState(false)
+function Header({ searchNameCountries, currentPath }) {
+  const location = useLocation();
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-   if(currentPath === location.pathname){
-    setIsActive(true)
-    return
-   }
-   setIsActive(false)
-  }, [location, currentPath])
+    if (currentPath === location.pathname) {
+      setIsActive(true);
+      return;
+    }
+    setIsActive(false);
+  }, [location, currentPath]);
   return (
     <div className="header">
       <Theme />
-      <Search searchNameCountries={searchNameCountries} /> 
-      <Navbar isActive={isActive}/>
+      <Search searchNameCountries={searchNameCountries} />
+      <Navbar isActive={isActive} />
     </div>
   );
 }

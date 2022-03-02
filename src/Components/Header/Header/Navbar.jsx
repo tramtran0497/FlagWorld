@@ -23,7 +23,7 @@ function Navbar({isActive}) {
           <Link to="/">Home</Link>
           
         </li>
-        <li>Contact</li>
+        <li> <a href="#contact" className="navbar__list__contact">Contact</a></li>
         <FavoriteBadge toggleDisabled={toggleDisabled} disabledFavorite={disabledFavorite}/>
         <CartBadge toggleDisabled={toggleDisabled} disabledCart={disabledCart}/>
       </ul>

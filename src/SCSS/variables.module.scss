@@ -1,5 +1,4 @@
-
-$primary-light: #FFFFFF;
+$primary-light: #ffffff;
 
 $primary-dark: #000000;
 
@@ -16,9 +15,8 @@ $primary-color-lightest: lighten($primary-color, 20%);
 $primary-color-lighter: lighten($primary-color, 10%);
 
 :export {
-    primaryLight: $primary-light;
-    primaryDark: $primary-dark;
+  primaryLight: $primary-light;
+  primaryDark: $primary-dark;
+  primaryColor: $primary-color;
+  primaryDarkLighter: $primary-dark-lighter;
 }
-
-
-

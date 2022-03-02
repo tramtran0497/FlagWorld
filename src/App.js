@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import Country from "./Pages/Country";
 import { ThemeContext } from "./useContext/ThemeContext";
@@ -10,7 +10,8 @@ import { useSelector } from "react-redux";
 import React, { useEffect, useState, useContext } from "react";
 import { fetchCountries } from "./Redux/FetchCountries/fetchCountries-actions";
 import { useDispatch } from "react-redux";
- 
+import variables from "./SCSS/variables.module.scss";
+import Footer from "./Components/Footer/Footer.jsx";
 
 function App() {
   const darkTheme = useContext(ThemeContext);
@@ -19,7 +20,7 @@ function App() {
   const loading = useSelector((state) => state.fetch.loading);
   const error = useSelector((state) => state.fetch.error);
   const dispatch = useDispatch();
-  const [currentPath, setCurrentPath] = useState("")
+  const [currentPath, setCurrentPath] = useState("");
 
   useEffect(() => {
     dispatch(fetchCountries());
@@ -29,10 +30,7 @@ function App() {
     setDisplayList(listCountries);
   }, [listCountries]);
 
-  useEffect(() => {
-    //console.log("location", location)
-
-  });
+  useEffect(() => {});
 
   const searchNameCountries = (inputText) => {
     if (!inputText) {
@@ -47,11 +45,8 @@ function App() {
   };
 
   const takeCurrentPath = (path) => {
-    console.log("takePathFromHeader", path)
-    setCurrentPath(path)
-  }
-
-  
+    setCurrentPath(path);
+  };
 
   return (
     <div>
@@ -59,12 +54,17 @@ function App() {
         <React.StrictMode>
           <div
             style={{
-              backgroundColor: darkTheme ? "black" : "white",
-              color: darkTheme ? "white" : "black",
+              backgroundColor: darkTheme
+                ? variables.primaryDark
+                : variables.primaryLight,
+              color: darkTheme ? variables.primaryLight : variables.primaryDark,
             }}
             className="app"
           >
-          <Header searchNameCountries={searchNameCountries} currentPath={currentPath}/>
+            <Header
+              searchNameCountries={searchNameCountries}
+              currentPath={currentPath}
+            />
             <Routes>
               <Route
                 path="/"
@@ -73,13 +73,14 @@ function App() {
                     loading={loading}
                     error={error}
                     displayList={displayList}
-                    takeCurrentPath={takeCurrentPath}                   
+                    takeCurrentPath={takeCurrentPath}
                   />
                 }
               />
               <Route path="country/:name" element={<Country />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
+            <Footer/>
           </div>
         </React.StrictMode>
       </BrowserRouter>

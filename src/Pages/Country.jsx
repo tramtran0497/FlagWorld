@@ -1,13 +1,11 @@
 import React from "react";
 import CardCountry from "../Components/Card/CardCountry";
-import "./country.scss"
-
+import "./country.scss";
 
 function Country() {
-
   return (
     <div className="country">
-      <CardCountry/>  
+      <CardCountry />
     </div>
   );
 }

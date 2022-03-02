@@ -18,6 +18,7 @@
   &__img {
     img {
       @include image(content, 300px, 200px);
+      box-shadow: 2px 4px 7px 4px rgba(64,64,64,0.88);
       border-radius: 0px;
     }
   }
