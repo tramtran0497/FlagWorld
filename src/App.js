@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate} from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import Country from "./Pages/Country";
 import { ThemeContext } from "./useContext/ThemeContext";
@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import React, { useEffect, useState, useContext } from "react";
 import { fetchCountries } from "./Redux/FetchCountries/fetchCountries-actions";
 import { useDispatch } from "react-redux";
+ 
 
 function App() {
   const darkTheme = useContext(ThemeContext);
@@ -18,6 +19,7 @@ function App() {
   const loading = useSelector((state) => state.fetch.loading);
   const error = useSelector((state) => state.fetch.error);
   const dispatch = useDispatch();
+  const [currentPath, setCurrentPath] = useState("")
 
   useEffect(() => {
     dispatch(fetchCountries());
@@ -28,7 +30,8 @@ function App() {
   }, [listCountries]);
 
   useEffect(() => {
-    //console
+    //console.log("location", location)
+
   });
 
   const searchNameCountries = (inputText) => {
@@ -42,9 +45,16 @@ function App() {
       setDisplayList(searchedList);
     }
   };
+
+  const takeCurrentPath = (path) => {
+    console.log("takePathFromHeader", path)
+    setCurrentPath(path)
+  }
+
+  
+
   return (
     <div>
-      <Header searchNameCountries={searchNameCountries} />
       <BrowserRouter>
         <React.StrictMode>
           <div
@@ -54,6 +64,7 @@ function App() {
             }}
             className="app"
           >
+          <Header searchNameCountries={searchNameCountries} currentPath={currentPath}/>
             <Routes>
               <Route
                 path="/"
@@ -62,6 +73,7 @@ function App() {
                     loading={loading}
                     error={error}
                     displayList={displayList}
+                    takeCurrentPath={takeCurrentPath}                   
                   />
                 }
               />

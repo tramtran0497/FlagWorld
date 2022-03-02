@@ -6,14 +6,30 @@
     &__list{
         width: 100%;
         @include flex(row, space-around, center);
+
+        &__home{
+            a{
+                color: $primary-light;
+                text-decoration: none;
+
+            }
+        }
+
+        &__active{
+            a{
+                text-decoration: none;
+                color: $primary-light;
+                border-bottom: 2px solid $primary-light;
+            }
+        }
         
         li{
             list-style: none;
-            transition: all .75s ease-in;
+            transition: all .25s ease-in;
             cursor: pointer;
             
             &:hover{
-                border-bottom: 1px solid $primary-light;
+                border-bottom: 2px solid $primary-light;
             }
         
         }

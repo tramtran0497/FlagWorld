@@ -40,7 +40,7 @@ function CardCountry() {
     dispatch(fetchCountry(name));
   }, []);
 
-  useEffect(() => {console.log(country.name)});
+  useEffect(() => {});
 
   const handleClick = () => {
     setIsShow(!isShow);
