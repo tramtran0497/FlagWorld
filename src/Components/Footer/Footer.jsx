@@ -47,10 +47,10 @@ function Footer() {
       <div className="footer__info">
         <h3>How many % you know about the World?</h3>
         <ul>
-          <li>View the world</li>
-          <li>Regions</li>
-          <li>Continents</li>
-          <li>Oceans</li>
+          <li><a href="https://geology.com/world/world-map.shtml">View the world</a></li>
+          <li><a href="https://ourworldindata.org/world-region-map-definitions">Regions</a></li>
+          <li><a href="https://www.worldometers.info/geography/7-continents/">Continents</a></li>
+          <li><a href="https://www.marinebio.org/oceans/geography/">Oceans</a></li>
         </ul>
         <p className="footer__info__copyRight">Copyright © 2022 TramTran</p>
       </div>
@@ -96,9 +96,15 @@ function Footer() {
       </div>
 
       <div className="footer__socialIcons">
-        <GitHubIcon className="footer__socialIcons__icon" />
-        <LinkedInIcon className="footer__socialIcons__icon" />
-        <BusinessIcon className="footer__socialIcons__icon" />
+        <a href="https://github.com/tramtran0497">
+          <GitHubIcon className="footer__socialIcons__icon" />
+        </a>
+        <a href="https://www.linkedin.com/in/tram-tran-924301207/">
+          <LinkedInIcon className="footer__socialIcons__icon" />
+        </a>
+        <a href="https://www.integrify.io/">
+          <BusinessIcon className="footer__socialIcons__icon" />
+        </a>
       </div>
     </div>
   );
