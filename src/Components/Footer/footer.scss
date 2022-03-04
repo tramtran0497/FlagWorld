@@ -1,89 +1,123 @@
 @import "../../SCSS//colors";
 @import "../../SCSS//mixins";
 
-.footer{
-    width: 100vw;
-    height: 200px;
-    @include flex(row, space-between, center);
-    background-color: $primary-color-lightest;
-    color: $primary-light;
-    position: absolute;
-    bottom: 0px;
+.footer {
+  width: 100vw;
+  height: 200px;
+  @include flex(row, space-between, center);
+  background-color: $primary-color-lightest;
+  color: $primary-light;
+  position: absolute;
+  bottom: 0px;
 
-    &__info{
-        width: 30%;
-        padding: 10px 20px;
-        h3{
-            font-size: 20px;
-            font-weight: 400;
-        }
-
-        ul{
-            li{
-                font-size: 15px;
-                list-style: none;
-                margin: 7px 0;
-                cursor: pointer;
-                transition: all 0.25s ease-in;
-
-                &:hover{
-                    color: $primary-color;
-                }
-            }
-        }
+  &__info {
+    width: 30%;
+    padding: 10px 20px;
+    h3 {
+      font-size: 20px;
+      font-weight: 400;
     }
 
-    &__contact{
-        width: 30%;
-        @include flex(column, center, center);
+    ul {
+      li {
+        font-size: 15px;
+        list-style: none;
+        margin: 7px 0;
+        cursor: pointer;
+        transition: all 0.25s ease-in;
 
-        &__sendEmail{
-            width: 100%;
-            @include flex(row, center, center);
-
-            input{
-                width: 80%;
-                transition: all 0.75s ease-in;
-                padding: 5px;
-
-
-                &:focus-visible{
-                    outline-color: $primary-color-darker;
-                    border: none;                
-                }
-            }
-
-            &__icon{
-                transition: all 0.5s ease-in;
-                cursor: pointer;
-                margin-left: 5px;
-
-                &:hover{
-                    color: $primary-color;;
-                }
-            }
+        &:hover {
+          color: $primary-color;
         }
-
-        &__copyRight{
-            margin-top: 50px;
-            font-style: italic;
-        }
+      }
     }
 
-    &__socialIcons{
-        height: 160px;
-        width: 20%;
-        @include flex(row, center, flex-end);
-        padding: 20px;
-
-        &__icon{
-            font-size: 30px !important;
-            transition: all 0.5s ease-in;
-            cursor: pointer;
-            margin: 0 10px;
-            &:hover{
-                color: $primary-color;
-            }
-        }
+    &__copyRight {
+      font-style: italic;
+      font-size: 12px;
     }
+  }
+
+  &__contact {
+    width: 40%;
+    @include flex(column, center, center);
+
+    p{
+        @include flex(row, "", center);
+        color: $primary-color-darker;
+    }
+
+    &__sendEmail {
+      width: 100%;
+      @include flex(column, center, center);
+
+      &__feedBack {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 10px;
+        input {
+          width: 70%;
+          padding: 10px;
+          border: 1px solid $primary-color;
+          background-color: $primary-color-darker;
+          color: $primary-light;
+          cursor: pointer;
+
+          &:focus-visible {
+            outline-color: $primary-color-lightest;
+          }
+        }
+      }
+
+      &__email {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+
+        input {
+          width: 70%;
+          padding: 10px;
+          border: 1px solid $primary-color;
+          background-color: $primary-color-darker;
+          color: $primary-light;
+          cursor: pointer;
+
+          &:focus-visible {
+            outline-color: $primary-color-lightest;
+          }
+        }
+      }
+
+      &__btn {
+        cursor: pointer;
+        color: $primary-light;
+        padding: 5px 10px 5px 8px;
+        width: 50px;
+        border: 1px solid $primary-light;
+        background-color: transparent;
+        transition: all 0.5s ease;
+        &:hover {
+          background-color: $primary-color-darker;
+          border: 1px solid $primary-color-darker;
+        }
+      }
+    }
+  }
+
+  &__socialIcons {
+    height: 160px;
+    width: 20%;
+    @include flex(row, center, flex-end);
+    padding: 20px;
+
+    &__icon {
+      font-size: 30px !important;
+      transition: all 0.5s ease-in;
+      cursor: pointer;
+      margin: 0 10px;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
 }
