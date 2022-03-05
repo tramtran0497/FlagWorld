@@ -1,6 +1,14 @@
 @import "../../../SCSS/mixins";
 @import "../../../SCSS/_colors.scss";
 
+.loading,
+.error {
+  padding-left: 20px;
+  @include mobile {
+    font-size: 12px;
+  }
+}
+
 .table {
   width: 100%;
   border-bottom: 1px solid $primary-color;

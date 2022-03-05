@@ -6,7 +6,7 @@ import "../../HeaderStyle/cart.scss";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../../../Redux/Cart/cart-action";
 
-function CartBadge({disabledCart, toggleDisabled}) {
+function CartBadge({ disabledCart, toggleDisabled }) {
   const [isShow, setIsShow] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const { listCarts } = useSelector((state) => state.cart);
@@ -25,8 +25,8 @@ function CartBadge({disabledCart, toggleDisabled}) {
   }, [listCarts]);
 
   const handleShow = () => {
-    setIsShow(!isShow)
-    toggleDisabled("cart")
+    setIsShow(!isShow);
+    toggleDisabled("cart");
   };
 
   const handleAdd = (cart) => {
@@ -37,7 +37,10 @@ function CartBadge({disabledCart, toggleDisabled}) {
     dispatch(removeFromCart(cart));
   };
   return (
-    <div className="cart" style={disabledCart ? {pointerEvents: "none", opacity: "0.4"} : {}}>
+    <div
+      className="cart"
+      style={disabledCart ? { pointerEvents: "none", opacity: "0.4" } : {}}
+    >
       <Badge
         badgeContent={quantity}
         color="secondary"
@@ -62,9 +65,15 @@ function CartBadge({disabledCart, toggleDisabled}) {
                 <img src={cart.flag} alt="The country flag" />
                 <h4>{cart.name}</h4>
                 <div className="cart__list__display__qty">
-                  <Remove onClick={() => handleRemove(cart)} />
+                  <Remove
+                    onClick={() => handleRemove(cart)}
+                    className="cart__list__display__qty__icon"
+                  />
                   <p>{cart.qty}</p>
-                  <Add onClick={() => handleAdd(cart)} />
+                  <Add
+                    onClick={() => handleAdd(cart)}
+                    className="cart__list__display__qty__icon"
+                  />
                 </div>
               </div>
             );

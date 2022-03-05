@@ -1,21 +1,20 @@
 @import "../../../SCSS/mixins";
 @import "../../../SCSS/_colors.scss";
-.header{
-    &::before {
-        width: 100vw;
-        height: 56px;
-        content: "";
-        background-color: $primary-color;
-        opacity: 0.75;
-        position: absolute;
-        z-index: -1;
-    }
+.header {
+  &::before {
+    width: 100vw;
+    height: 56px;
+    content: "";
+    background-color: $primary-color;
+    opacity: 0.75;
+    position: absolute;
+    z-index: -1;
+  }
 
-    color: $primary-light;
-    width: 100%;
-    @include flex(row, space-around, center);
-    position: fixed;
-    z-index: 2;
-    top: 0px;
-
+  color: $primary-light;
+  width: 100%;
+  @include flex(row, space-around, center);
+  position: fixed;
+  z-index: 2;
+  top: 0px;
 }

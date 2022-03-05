@@ -3,22 +3,34 @@
 
 .footer {
   width: 100vw;
-  height: 200px;
+  height: fit-content;
   @include flex(row, space-between, center);
   background-color: $primary-color-lightest;
   color: $primary-light;
-  position: absolute;
-  bottom: 0px;
+  margin-top: 20px;
 
+  @include mobile {
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
   &__info {
+    height: 90%;
     width: 30%;
-    padding: 10px 20px;
+    padding: 5px;
+    @include mobile {
+      width: 40%;
+    }
     h3 {
       font-size: 20px;
       font-weight: 400;
+      margin: 10px 10px;
+      @include mobile {
+        font-size: 12px;
+      }
     }
 
     ul {
+      margin: 5px 10px;
       li {
         list-style: none;
         a {
@@ -32,23 +44,37 @@
           &:hover {
             color: $primary-color;
           }
+
+          @include mobile {
+            font-size: 12px;
+          }
         }
       }
     }
 
     &__copyRight {
+      text-align: center;
       font-style: italic;
       font-size: 12px;
+      @include mobile {
+        font-size: 9px;
+      }
     }
   }
 
   &__contact {
     width: 40%;
     @include flex(column, center, center);
-
+    @include mobile {
+      width: 50%;
+    }
     p {
       @include flex(row, "", center);
       color: $primary-color-darker;
+
+      @include mobile {
+        text-align: center;
+      }
     }
 
     &__sendEmail {
@@ -70,6 +96,18 @@
           &:focus-visible {
             outline-color: $primary-color-lightest;
           }
+
+          &::placeholder {
+            color: $primary-light;
+          }
+
+          @include mobile {
+            padding: 3px 7px;
+
+            &::placeholder {
+              font-size: 10px;
+            }
+          }
         }
       }
 
@@ -89,6 +127,18 @@
           &:focus-visible {
             outline-color: $primary-color-lightest;
           }
+
+          &::placeholder {
+            color: $primary-light;
+          }
+
+          @include mobile {
+            padding: 3px 7px;
+
+            &::placeholder {
+              font-size: 10px;
+            }
+          }
         }
       }
 
@@ -104,6 +154,12 @@
           background-color: $primary-color-darker;
           border: 1px solid $primary-color-darker;
         }
+
+        @include mobile {
+          width: 35px;
+          padding: 3px;
+          font-size: 10px;
+        }
       }
     }
   }
@@ -113,7 +169,12 @@
     width: 20%;
     @include flex(row, center, flex-end);
     padding: 20px;
-
+    @include mobile {
+      width: 100%;
+      height: 10px;
+      @include flex(row, flex-start, center);
+      padding: 5px;
+    }
     &__icon {
       cursor: pointer;
       color: $primary-light;
@@ -123,6 +184,10 @@
       margin: 0 10px;
       &:hover {
         color: $primary-color;
+      }
+
+      @include mobile {
+        font-size: 15px !important;
       }
     }
   }

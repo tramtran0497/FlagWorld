@@ -1,0 +1,51 @@
+@import "../../../SCSS/mixins";
+@import "../../../SCSS/_colors.scss";
+
+.hambuger {
+  display: none;
+  width: 50px;
+  text-align: center;
+  margin-top: 5px;
+  @include mobile {
+    display: block;
+  }
+  &__icon {
+    position: relative;
+  }
+
+  &__list {
+    color: $primary-light;
+    background-color: $primary-color-darker;
+    opacity: 0.8;
+    width: 20%;
+    @include position(absolute, 45px);
+    right: 10px;
+    font-size: 12px;
+
+    ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+
+      li {
+        text-align: right;
+        padding: 10px 5px;
+        transition: all 0.5s ease;
+        &:hover {
+          background-color: $primary-light;
+          opacity: 0.6;
+          color: $primary-dark;
+        }
+        a {
+          color: $primary-light;
+          text-decoration: none;
+          transition: all 0.5s ease;
+
+          &:hover {
+            color: $primary-color-darkest;
+          }
+        }
+      }
+    }
+  }
+}

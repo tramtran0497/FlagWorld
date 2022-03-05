@@ -8,6 +8,9 @@
   &__badge {
     &__icon {
       color: $primary-light !important;
+      @include mobile {
+        font-size: 20px !important;
+      }
     }
   }
 
@@ -19,23 +22,43 @@
     background-color: $primary-color-darkest;
     @include position(absolute, 30px);
     right: 0px;
+    @include mobile {
+      width: 160px;
+      height: 200px;
+    }
 
     &__display {
       width: 250px;
+      text-align: center;
       padding: 10px;
       @include flex(row, space-between, center);
+      @include mobile {
+        font-size: 12px;
+        width: 130px;
+      }
 
       img {
         width: 20%;
         @include image(content, 30px, 30px);
+        @include mobile {
+          @include image(content, 15px, 15px);
+        }
       }
 
       h4 {
         width: 65%;
+        @include mobile {
+          font-size: 15px;
+          width: 50%;
+        }
       }
 
       &__icon {
         width: 15%;
+
+        @include mobile {
+          font-size: 19px !important;
+        }
       }
     }
   }

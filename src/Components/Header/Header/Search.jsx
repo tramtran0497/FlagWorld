@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "../HeaderStyle/search.scss";
 
 function Search({ searchNameCountries }) {
-  const [isShow, setIsShow] = useState(false)
+  const [isShow, setIsShow] = useState(false);
   const [inputText, setInputText] = useState("");
   const [suggestListName, setSuggestListName] = useState([]);
   const listCountries = useSelector((state) => state.fetch.listCountries);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    
     if (inputText === "") {
-      setIsShow(false)
+      setIsShow(false);
       searchNameCountries("");
     }
   }, [inputText, searchNameCountries]);
@@ -29,7 +30,9 @@ function Search({ searchNameCountries }) {
     }
   };
 
-  const handleClick = (event) => setInputText(event.target.textContent);
+  const handleClick = (event) => {
+    setInputText(event.target.textContent);
+  };
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -48,6 +51,7 @@ function Search({ searchNameCountries }) {
     searchNameCountries(inputText);
     setSuggestListName([]);
     setIsShow(false);
+    navigate("/");
   };
   return (
     <div className="search">
@@ -60,7 +64,10 @@ function Search({ searchNameCountries }) {
         />
         <button onClick={handleSubmit}>Search</button>
       </div>
-      <div className="search__suggestion" style={{display: isShow ? "block" : "none"}} >
+      <div
+        className="search__suggestion"
+        style={{ display: isShow ? "block" : "none" }}
+      >
         {suggestListName?.map((country) => (
           <p key={country.name} onClick={handleClick}>
             {country.name}

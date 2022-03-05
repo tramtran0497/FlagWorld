@@ -65,9 +65,12 @@ function CardCountry() {
         <img src={country.flag} alt={`${country.name} flag`} />
       </div>
       <div className="cardCountry__detailsInfo">
-        <div className="cardCountry__detailsInfo__icon">
+        <div className="cardCountry__detailsInfo__dropDown">
           <p>More details</p>
-          <ArrowDropDownIcon onClick={handleClick} />
+          <ArrowDropDownIcon
+            onClick={handleClick}
+            className="cardCountry__detailsInfo__dropDown__icon"
+          />
         </div>
         <div
           className="cardCountry__detailsInfo__displayInfo"

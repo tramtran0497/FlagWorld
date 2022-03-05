@@ -67,9 +67,9 @@ function TableHead({ listItems, displaySortList }) {
             }}
           >
             {columnName === "NAME" && asc ? (
-              <ArrowUpwardIcon />
+              <ArrowUpwardIcon className="arrowUpIcon" />
             ) : (
-              <ArrowDownwardIcon />
+              <ArrowDownwardIcon className="arrowDownIcon" />
             )}
           </div>
         </th>
@@ -81,9 +81,9 @@ function TableHead({ listItems, displaySortList }) {
             }}
           >
             {columnName === "CAPITAL" && asc ? (
-              <ArrowUpwardIcon />
+              <ArrowUpwardIcon className="arrowUpIcon" />
             ) : (
-              <ArrowDownwardIcon />
+              <ArrowDownwardIcon className="arrowDownIcon" />
             )}
           </div>
         </th>
@@ -96,13 +96,13 @@ function TableHead({ listItems, displaySortList }) {
             }}
           >
             {columnName === "REGION" && asc ? (
-              <ArrowUpwardIcon />
+              <ArrowUpwardIcon className="arrowUpIcon" />
             ) : (
-              <ArrowDownwardIcon />
+              <ArrowDownwardIcon className="arrowDownIcon" />
             )}
           </div>
         </th>
-        <th onClick={handleChangeIcon}>
+        <th onClick={handleChangeIcon} className="tableHead__list__population">
           POPULATION
           <div
             style={{
@@ -110,9 +110,9 @@ function TableHead({ listItems, displaySortList }) {
             }}
           >
             {columnName === "POPULATION" && asc ? (
-              <ArrowUpwardIcon />
+              <ArrowUpwardIcon className="arrowUpIcon" />
             ) : (
-              <ArrowDownwardIcon />
+              <ArrowDownwardIcon className="arrowDownIcon" />
             )}
           </div>
         </th>

@@ -1,63 +1,82 @@
 @import "../../../SCSS/mixins";
 @import "../../../SCSS/_colors.scss";
 
-.search{
-    width: 500px;
-    position: relative;
+.search {
+  width: 500px;
+  position: relative;
 
-    &__input {
-        @include flex(row, center, center);
+  @include mobile {
+    width: 250px;
+  }
 
-        input{
-            width: 80%;
-            padding: 5px 10px;
-            border: 1px solid $primary-light;
-            color: $primary-light;
-            background-color: $primary-color-darker;
-            margin-right: 5px;
-            font-size: 15px;
+  &__input {
+    @include flex(row, center, center);
 
-            &:focus-visible{
-                outline-color: $primary-color-darker;
-                border: none;
-            }
-        }
+    input {
+      width: 80%;
+      padding: 5px 10px;
+      border: 1px solid $primary-light;
+      color: $primary-light;
+      background-color: $primary-color-darker;
+      margin-right: 5px;
+      font-size: 15px;
 
-        button{
-            border: 1px solid $primary-light;
-            color: $primary-light;
-            background-color: transparent;
-            padding: 6px 10px;
-            transition: all 0.25s ease-in;
-            cursor: pointer;
+      &:focus-visible {
+        outline-color: $primary-color-darker;
+        border: none;
+      }
 
-            &:hover{
-                border: 1px solid $primary-light;
-                border-radius: 3px;
-                background-color: $primary-color-darker;
-            }
-        }
+      @include mobile {
+        font-size: 10px;
+      }
     }
 
-    &__suggestion {
-        
-        height: 400px;
-        overflow: scroll;
-        @include position(absolute, 35px);
+    button {
+      border: 1px solid $primary-light;
+      color: $primary-light;
+      background-color: transparent;
+      padding: 6px 10px;
+      transition: all 0.25s ease-in;
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid $primary-light;
+        border-radius: 3px;
         background-color: $primary-color-darker;
-        width: 400px;
-        left: 5px;
-        padding: 5px 10px;
+      }
 
-        p{
-            padding: 3px 5px;
-            margin: 5px 0;
-            font-size: 15px;
-
-            &:hover{
-                background-color: $primary-color-lighter;
-            }
-        }
-
+      @include mobile {
+        padding: 3px 5px;
+      }
     }
+  }
+
+  &__suggestion {
+    height: 400px;
+    overflow: scroll;
+    @include position(absolute, 35px);
+    background-color: $primary-color-darker;
+    width: 400px;
+    left: 5px;
+    padding: 5px 10px;
+
+    @include mobile {
+      width: 165px;
+      @include position(absolute, 27px);
+      height: 200px;
+    }
+    p {
+      padding: 3px 5px;
+      margin: 5px 0;
+      font-size: 15px;
+
+      @include mobile {
+        font-size: 10px;
+      }
+
+      &:hover {
+        background-color: $primary-color-lighter;
+      }
+    }
+  }
 }

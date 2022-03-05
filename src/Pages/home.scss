@@ -12,4 +12,9 @@ html {
 
 .home {
   width: 85%;
+  min-height: 100vh;
+
+  @include mobile {
+    width: 100%;
+  }
 }

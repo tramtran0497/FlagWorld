@@ -1,45 +1,51 @@
 @import "../../../SCSS/mixins";
 @import "../../../SCSS/_colors.scss";
 
-.navbar{
-    width: 300px;
-    &__list{
-        width: 100%;
-        @include flex(row, space-around, center);
+.navbar {
+  width: 300px;
 
-        &__home{
-            a{
-                color: $primary-light;
-                text-decoration: none;
+  @include mobile {
+    width: 100px;
+  }
 
-            }
-        }
-
-        &__active{
-            a{
-                text-decoration: none;
-                color: $primary-light;
-                border-bottom: 2px solid $primary-light;
-            }
-        }
-
-        &__contact{
-            color: $primary-light;
-            text-decoration: none;
-
-        }
-        
-        li{
-            list-style: none;
-            transition: all .25s ease-in;
-            cursor: pointer;
-            
-            &:hover{
-                border-bottom: 2px solid $primary-light;
-            }
-        
-        }
-
-       
+  &__list {
+    width: 90%;
+    @include flex(row, space-around, center);
+    @include mobile {
+      padding: 0px;
     }
+    &__home {
+      a {
+        color: $primary-light;
+        text-decoration: none;
+      }
+    }
+
+    &__active {
+      a {
+        text-decoration: none;
+        color: $primary-light;
+        border-bottom: 2px solid $primary-light;
+      }
+    }
+
+    &__contact {
+      color: $primary-light;
+      text-decoration: none;
+    }
+
+    li {
+      display: block;
+      list-style: none;
+      transition: all 0.25s ease-in;
+      cursor: pointer;
+
+      &:hover {
+        border-bottom: 2px solid $primary-light;
+      }
+      @include mobile {
+        display: none;
+      }
+    }
+  }
 }

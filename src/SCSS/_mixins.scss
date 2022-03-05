@@ -17,3 +17,30 @@
     border-radius: 50%;
     overflow: hidden;
 }
+
+@mixin mobile {
+    @media only screen and (min-width: 480px){
+        @content;
+
+    }
+}
+
+@mixin Tablet {
+    @media only screen and (min-width: 768px){
+        @content;
+
+    }
+}
+
+@mixin Desktop {
+    @media only screen and (min-width: 992px){
+        @content;
+    }
+}
+
+@mixin Huge {
+    @media only screen and (min-width: 1280px){
+        @content;
+
+    }
+}

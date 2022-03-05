@@ -4,6 +4,9 @@
 .tableRow {
   border-bottom: 1px solid $primary-color-darker;
 
+  @include mobile {
+    font-size: 10px;
+  }
   td {
     width: calc(100% / 8);
     text-align: center;
@@ -21,6 +24,18 @@
   &__img {
     img {
       @include image(content, 50px, 50px);
+
+      @include mobile {
+        @include image(content, 30px, 30px);
+      }
+    }
+  }
+
+  &__population {
+    display: block;
+
+    @include mobile {
+      display: none;
     }
   }
 
@@ -28,6 +43,10 @@
     &__removeIcon,
     &__addIcon {
       cursor: pointer;
+
+      @include mobile {
+        font-size: 12px !important;
+      }
     }
 
     div {
@@ -38,6 +57,9 @@
   &__favorite {
     &__icon {
       cursor: pointer;
+      @include mobile {
+        font-size: 15px !important;
+      }
     }
   }
 }

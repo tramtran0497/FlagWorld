@@ -10,8 +10,8 @@ function TableShowsCountries({ listItems, loading, error }) {
     setDisplayList(listItems);
   }, [listItems]);
 
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Something went wrong...</h1>;
+  if (loading) return <h1 className="loading">Loading...</h1>;
+  if (error) return <h1 className="error">Something went wrong...</h1>;
 
   const displaySortList = (list) => {
     setDisplayList(list);

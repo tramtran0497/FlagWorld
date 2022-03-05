@@ -4,4 +4,5 @@
 .country {
   width: 100%;
   @include flex(row, center, center);
+  min-height: 100vh;
 }

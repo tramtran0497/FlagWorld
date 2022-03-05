@@ -2,37 +2,57 @@
 @import "../../SCSS/colors";
 
 .cardCountry {
-  width: 30%;
+  width: 40%;
   @include flex(column, "", center);
   border: 2px solid $primary-color-lightest;
   border-radius: 25px;
 
+  @include mobile {
+    width: 50%;
+    font-size: 12px;
+  }
   h1 {
     font-size: 40px;
     font-weight: 400;
     height: fit-content;
     width: fit-content;
-    text-align: center
+    text-align: center;
+
+    @include mobile {
+      font-size: 20px;
+    }
   }
 
   &__img {
     img {
       @include image(content, 300px, 200px);
-      box-shadow: 2px 4px 7px 4px rgba(64,64,64,0.88);
+      box-shadow: 2px 4px 7px 4px rgba(64, 64, 64, 0.88);
       border-radius: 0px;
+
+      @include mobile {
+        @include image(content, 150px, 100px);
+        border-radius: 0px;
+      }
     }
   }
 
   &__detailsInfo {
     width: 60%;
     margin: 20px 0;
-    &__icon {
+    @include mobile {
+      width: 80%;
+    }
+    &__dropDown {
       @include flex(row, space-between, flex-end);
       border-bottom: 2px solid $primary-color-lighter;
 
       p {
         margin: 0;
         margin-bottom: 5px;
+
+        @include mobile {
+          font-size: 10px;
+        }
       }
     }
 
@@ -40,6 +60,18 @@
       &__languages {
         ul {
           list-style: none;
+          padding: 0px;
+          @include mobile {
+            width: 100%;
+            text-align: left;
+          }
+
+          li {
+            padding: 0px;
+          }
+        }
+        @include mobile {
+          @include flex(column !important, "", "");
         }
       }
 
@@ -54,6 +86,9 @@
   &__purchase {
     width: 60%;
     @include flex(row, space-between, center);
+    @include mobile {
+      width: 80%;
+    }
     div {
       @include flex(row, space-around, center);
     }
@@ -62,5 +97,8 @@
   &__favorite {
     width: 60%;
     @include flex(row, space-between, center);
+    @include mobile {
+      width: 80%;
+    }
   }
 }
