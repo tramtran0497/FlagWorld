@@ -13,9 +13,9 @@ function ThemeClick() {
   return (
     <div className="themeClick">
       {isClicked ? (
-        <Brightness7Icon onClick={handleClick} />
+        <Brightness7Icon onClick={handleClick} className="themeClick__icon"/>
       ) : (
-        <Brightness4Icon onClick={handleClick} />
+        <Brightness4Icon onClick={handleClick} className="themeClick__icon"/>
       )}
     </div>
   );

@@ -2,39 +2,48 @@
 @import "../../../SCSS/_colors.scss";
 
 .tableHead {
-  @include mobile{
+  @include mobile {
     font-size: 10px;
+  }
+
+  @include tablet {
+    font-size: 13px;
   }
   &__list {
     width: 100%;
     text-align: center;
 
-    &__population{
+    &__population {
       display: block;
 
-      @include mobile{
+      @include mobile {
+        display: none;
+      }
+
+      @include tablet {
         display: none;
       }
     }
 
     th {
-      // width: calc(100% / 8);
+      width: calc(100% / 8);
       border-bottom: 2px solid $primary-color-darker;
       position: relative;
-
-      
 
       div {
         @include position(absolute, 0px);
         right: 0px;
-        
 
-        .arrowUpIcon, .arrowDownIcon{
-          @include mobile{
+        .arrowUpIcon,
+        .arrowDownIcon {
+          @include mobile {
             font-size: 12px;
           }
+
+          @include tablet {
+            font-size: 15px;
+          }
         }
-        
       }
     }
   }

@@ -9,6 +9,10 @@
   @include mobile {
     display: block;
   }
+
+  @include tablet {
+    display: none;
+  }
   &__icon {
     position: relative;
   }

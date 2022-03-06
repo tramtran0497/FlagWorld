@@ -11,6 +11,9 @@
       @include mobile {
         font-size: 20px !important;
       }
+      @include tablet {
+        font-size: 25px !important;
+      }
     }
   }
 
@@ -26,6 +29,10 @@
       width: 160px;
       height: 200px;
     }
+    @include tablet {
+      width: 200px;
+      height: 240px;
+    }
 
     &__display {
       width: 250px;
@@ -35,6 +42,12 @@
       @include mobile {
         font-size: 12px;
         width: 130px;
+        padding: 0 10px;
+      }
+      @include tablet {
+        width: 170px;
+        font-size: 14px;
+        padding: 0 10px;
       }
 
       img {
@@ -43,13 +56,20 @@
         @include mobile {
           @include image(content, 15px, 15px);
         }
+        @include tablet {
+          @include image(content, 20px, 20px);
+        }
       }
 
       h4 {
         width: 65%;
         @include mobile {
-          font-size: 15px;
+          font-size: 13px;
           width: 50%;
+        }
+        @include tablet {
+          font-size: 15px;
+          width: 40%;
         }
       }
 
@@ -57,7 +77,10 @@
         width: 15%;
 
         @include mobile {
-          font-size: 19px !important;
+          font-size: 13px !important;
+        }
+        @include tablet {
+          font-size: 16px !important;
         }
       }
     }

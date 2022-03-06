@@ -11,6 +11,11 @@
     width: 50%;
     font-size: 12px;
   }
+
+  @include tablet {
+    width: 50%;
+    font-size: 15px;
+  }
   h1 {
     font-size: 40px;
     font-weight: 400;
@@ -20,6 +25,10 @@
 
     @include mobile {
       font-size: 20px;
+    }
+
+    @include tablet {
+      font-size: 25px;
     }
   }
 
@@ -33,6 +42,11 @@
         @include image(content, 150px, 100px);
         border-radius: 0px;
       }
+
+      @include tablet {
+        @include image(content, 220px, 170px);
+        border-radius: 0px;
+      }
     }
   }
 
@@ -40,6 +54,9 @@
     width: 60%;
     margin: 20px 0;
     @include mobile {
+      width: 80%;
+    }
+    @include tablet {
       width: 80%;
     }
     &__dropDown {
@@ -53,6 +70,10 @@
         @include mobile {
           font-size: 10px;
         }
+
+        @include tablet {
+          font-size: 15px;
+        }
       }
     }
 
@@ -61,18 +82,14 @@
         ul {
           list-style: none;
           padding: 0px;
-          @include mobile {
-            width: 100%;
-            text-align: left;
-          }
+          width: 100%;
+          text-align: left;
 
           li {
             padding: 0px;
           }
         }
-        @include mobile {
-          @include flex(column !important, "", "");
-        }
+        @include flex(column !important, "", "");
       }
 
       div {
@@ -89,6 +106,9 @@
     @include mobile {
       width: 80%;
     }
+    @include tablet {
+      width: 80%;
+    }
     div {
       @include flex(row, space-around, center);
     }
@@ -98,6 +118,9 @@
     width: 60%;
     @include flex(row, space-between, center);
     @include mobile {
+      width: 80%;
+    }
+    @include tablet {
       width: 80%;
     }
   }

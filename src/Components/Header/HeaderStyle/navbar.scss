@@ -8,12 +8,16 @@
     width: 100px;
   }
 
+  @include tablet {
+    width: 250px;
+    font-size: 15px;
+  }
+
   &__list {
     width: 90%;
     @include flex(row, space-around, center);
-    @include mobile {
-      padding: 0px;
-    }
+    padding: 0px;
+
     &__home {
       a {
         color: $primary-light;
@@ -45,6 +49,10 @@
       }
       @include mobile {
         display: none;
+      }
+
+      @include tablet {
+        display: block;
       }
     }
   }

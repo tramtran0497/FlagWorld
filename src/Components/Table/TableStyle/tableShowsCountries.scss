@@ -7,6 +7,10 @@
   @include mobile {
     font-size: 12px;
   }
+
+  @include tablet {
+    font-size: 15px;
+  }
 }
 
 .table {
