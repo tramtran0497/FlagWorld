@@ -9,30 +9,23 @@
   @include tablet {
     font-size: 13px;
   }
+
+  @include desktop {
+    font-size: 15px;
+  }
+
   &__list {
     width: 100%;
     text-align: center;
 
-    &__population {
-      display: block;
-
-      @include mobile {
-        display: none;
-      }
-
-      @include tablet {
-        display: none;
-      }
-    }
-
     th {
-      width: calc(100% / 8);
       border-bottom: 2px solid $primary-color-darker;
       position: relative;
 
       div {
         @include position(absolute, 0px);
         right: 0px;
+        top: 0px;
 
         .arrowUpIcon,
         .arrowDownIcon {
@@ -43,8 +36,28 @@
           @include tablet {
             font-size: 15px;
           }
+
+          @include desktop {
+            font-size: 20px;
+          }
         }
       }
+    }
+
+    &__flag,
+    &__name,
+    &__capital,
+    &__favorite {
+      width: 9%;
+    }
+
+    &__buyFlag,
+    &__region {
+      width: 12%;
+    }
+    &__population,
+    &__languages {
+      width: 20%;
     }
   }
 }

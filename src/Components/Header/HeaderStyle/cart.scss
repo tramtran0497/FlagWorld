@@ -14,7 +14,11 @@
       }
 
       @include tablet {
-        font-size: 25px !important;
+        font-size: 23px !important;
+      }
+
+      @include desktop {
+        font-size: 26px !important;
       }
     }
   }
@@ -22,8 +26,6 @@
   &__list {
     border-radius: 15px;
     overflow: scroll;
-    height: 400px;
-    width: 270px;
     background-color: $primary-color-darkest;
     @include position(absolute, 30px);
     right: 0px;
@@ -38,9 +40,12 @@
       height: 240px;
     }
 
+    @include desktop {
+      width: 280px;
+      height: 320px;
+    }
+
     &__display {
-      width: 250px;
-      padding: 10px;
       text-align: center;
       @include flex(row, space-between, center);
 
@@ -56,9 +61,14 @@
         padding: 0 10px;
       }
 
+      @include desktop {
+        width: 250px;
+        font-size: 15px;
+        padding: 0 10px;
+      }
+
       img {
         width: 20%;
-        @include image(content, 30px, 30px);
 
         @include mobile {
           @include image(content, 15px, 15px);
@@ -67,15 +77,23 @@
         @include tablet {
           @include image(content, 20px, 20px);
         }
+
+        @include tablet {
+          @include image(content, 30px, 30px);
+        }
       }
 
       h4 {
-        width: 55%;
         @include mobile {
           font-size: 13px;
           width: 40%;
         }
         @include tablet {
+          font-size: 14px;
+          width: 40%;
+        }
+
+        @include desktop {
           font-size: 15px;
           width: 40%;
         }
@@ -89,7 +107,11 @@
           font-size: 12px;
         }
         @include tablet {
-          font-size: 15px;
+          font-size: 14px;
+        }
+
+        @include desktop {
+          font-size: 16px;
         }
 
         &__icon {
@@ -97,6 +119,9 @@
             font-size: 13px !important;
           }
           @include tablet {
+            font-size: 14px !important;
+          }
+          @include desktop {
             font-size: 15px !important;
           }
         }

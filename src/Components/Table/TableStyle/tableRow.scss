@@ -11,14 +11,29 @@
   @include tablet {
     font-size: 13px;
   }
+
+  @include desktop {
+    font-size: 15px;
+  }
   td {
-    width: calc(100% / 8);
     text-align: center;
     padding: 20px 0;
-    height: 50px;
+  }
+
+  &__capital {
+    width: 9%;
+  }
+
+  &__region {
+    width: 12%;
+  }
+  &__population,
+  &__languages {
+    width: 20%;
   }
 
   &__name {
+    width: 9%;
     a {
       cursor: pointer;
       color: $primary-color-lightest;
@@ -26,6 +41,7 @@
   }
 
   &__img {
+    width: 9%;
     img {
       @include image(content, 50px, 50px);
 
@@ -36,22 +52,15 @@
       @include tablet {
         @include image(content, 40px, 40px);
       }
-    }
-  }
 
-  &__population {
-    display: block;
-
-    @include mobile {
-      display: none;
-    }
-
-    @include tablet {
-      display: none;
+      @include desktop {
+        @include image(content, 50px, 50px);
+      }
     }
   }
 
   &__quantity {
+    width: 12%;
     &__removeIcon,
     &__addIcon {
       cursor: pointer;
@@ -63,6 +72,10 @@
       @include tablet {
         font-size: 15px !important;
       }
+
+      @include desktop {
+        font-size: 18px !important;
+      }
     }
 
     div {
@@ -71,6 +84,7 @@
   }
 
   &__favorite {
+    width: 9%;
     &__icon {
       cursor: pointer;
       @include mobile {
@@ -79,6 +93,10 @@
 
       @include tablet {
         font-size: 17px !important;
+      }
+
+      @include desktop {
+        font-size: 21px !important;
       }
     }
   }

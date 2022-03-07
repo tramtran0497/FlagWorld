@@ -2,14 +2,18 @@
 @import "../../../SCSS/_colors.scss";
 
 .theme {
-  width: 100px;
-  height: 50px;
-  @include flex(row, space-around, center);
   @include mobile {
     display: none;
   }
   @include tablet {
     display: none;
+  }
+
+  @include desktop {
+    display: block;
+    width: 100px;
+    @include flex(row, space-around, center);
+    height: 50px;
   }
 
   &__oval {

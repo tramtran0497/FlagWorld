@@ -9,7 +9,11 @@
   }
 
   @include tablet {
-    font-size: 15px;
+    font-size: 18px;
+  }
+
+  @include desktop {
+    font-size: 22px;
   }
 }
 

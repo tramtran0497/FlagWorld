@@ -14,14 +14,15 @@
       @include tablet {
         font-size: 25px !important;
       }
+      @include desktop {
+        font-size: 28px !important;
+      }
     }
   }
 
   &__list {
     border-radius: 15px;
     overflow: scroll;
-    height: 400px;
-    width: 270px;
     background-color: $primary-color-darkest;
     @include position(absolute, 30px);
     right: 0px;
@@ -33,11 +34,13 @@
       width: 200px;
       height: 240px;
     }
+    @include desktop {
+      width: 280px;
+      height: 320px;
+    }
 
     &__display {
-      width: 250px;
       text-align: center;
-      padding: 10px;
       @include flex(row, space-between, center);
       @include mobile {
         font-size: 12px;
@@ -49,27 +52,37 @@
         font-size: 14px;
         padding: 0 10px;
       }
+      @include desktop {
+        width: 250px;
+        font-size: 15px;
+        padding: 0 10px;
+      }
 
       img {
         width: 20%;
-        @include image(content, 30px, 30px);
         @include mobile {
           @include image(content, 15px, 15px);
         }
         @include tablet {
           @include image(content, 20px, 20px);
         }
+        @include tablet {
+          @include image(content, 30px, 30px);
+        }
       }
 
       h4 {
-        width: 65%;
         @include mobile {
           font-size: 13px;
           width: 50%;
         }
         @include tablet {
-          font-size: 15px;
+          font-size: 14px;
           width: 40%;
+        }
+        @include desktop {
+          font-size: 15px;
+          width: 50%;
         }
       }
 
@@ -81,6 +94,9 @@
         }
         @include tablet {
           font-size: 16px !important;
+        }
+        @include desktop {
+          font-size: 20px !important;
         }
       }
     }

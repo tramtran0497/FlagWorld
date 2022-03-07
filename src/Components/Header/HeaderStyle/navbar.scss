@@ -2,8 +2,6 @@
 @import "../../../SCSS/_colors.scss";
 
 .navbar {
-  width: 300px;
-
   @include mobile {
     width: 100px;
   }
@@ -11,6 +9,11 @@
   @include tablet {
     width: 250px;
     font-size: 15px;
+  }
+
+  @include tablet {
+    width: 300px;
+    font-size: 17px;
   }
 
   &__list {
@@ -52,6 +55,10 @@
       }
 
       @include tablet {
+        display: block;
+      }
+
+      @include desktop {
         display: block;
       }
     }

@@ -2,7 +2,6 @@
 @import "../../../SCSS/_colors.scss";
 
 .search {
-  width: 500px;
   position: relative;
 
   @include mobile {
@@ -11,6 +10,10 @@
 
   @include tablet {
     width: 380px;
+  }
+
+  @include desktop {
+    width: 500px;
   }
 
   &__input {
@@ -23,7 +26,6 @@
       color: $primary-light;
       background-color: $primary-color-darker;
       margin-right: 5px;
-      font-size: 15px;
 
       &:focus-visible {
         outline-color: $primary-color-darker;
@@ -37,13 +39,16 @@
       @include tablet {
         font-size: 12px;
       }
+
+      @include desktop {
+        font-size: 15px;
+      }
     }
 
     button {
       border: 1px solid $primary-light;
       color: $primary-light;
       background-color: transparent;
-      padding: 6px 10px;
       transition: all 0.25s ease-in;
       cursor: pointer;
 
@@ -60,15 +65,16 @@
       @include tablet {
         padding: 4.5px 8px;
       }
+
+      @include desktop {
+        padding: 6px 10px;
+      }
     }
   }
 
   &__suggestion {
-    height: 400px;
     overflow: scroll;
-    @include position(absolute, 35px);
     background-color: $primary-color-darker;
-    width: 400px;
     left: 5px;
     padding: 5px 10px;
 
@@ -83,10 +89,15 @@
       @include position(absolute, 32px);
       height: 230px;
     }
+
+    @include desktop {
+      width: 400px;
+      @include position(absolute, 35px);
+      height: 330px;
+    }
     p {
       padding: 3px 5px;
       margin: 5px 0;
-      font-size: 15px;
 
       @include mobile {
         font-size: 10px;
@@ -94,6 +105,10 @@
 
       @include tablet {
         font-size: 12px;
+      }
+
+      @include desktop {
+        font-size: 15px;
       }
 
       &:hover {

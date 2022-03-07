@@ -2,19 +2,21 @@
 @import "../../SCSS/colors";
 
 .cardCountry {
-  width: 40%;
+  width: 50%;
   @include flex(column, "", center);
   border: 2px solid $primary-color-lightest;
   border-radius: 25px;
 
   @include mobile {
-    width: 50%;
     font-size: 12px;
   }
 
   @include tablet {
-    width: 50%;
     font-size: 15px;
+  }
+
+  @include desktop {
+    font-size: 18px;
   }
   h1 {
     font-size: 40px;
@@ -29,6 +31,10 @@
 
     @include tablet {
       font-size: 25px;
+    }
+
+    @include desktop {
+      font-size: 30px;
     }
   }
 
@@ -47,18 +53,18 @@
         @include image(content, 220px, 170px);
         border-radius: 0px;
       }
+
+      @include tablet {
+        @include image(content, 290px, 240px);
+        border-radius: 0px;
+      }
     }
   }
 
   &__detailsInfo {
-    width: 60%;
+    width: 80%;
     margin: 20px 0;
-    @include mobile {
-      width: 80%;
-    }
-    @include tablet {
-      width: 80%;
-    }
+
     &__dropDown {
       @include flex(row, space-between, flex-end);
       border-bottom: 2px solid $primary-color-lighter;
@@ -73,6 +79,10 @@
 
         @include tablet {
           font-size: 15px;
+        }
+
+        @include desktop {
+          font-size: 18px;
         }
       }
     }
@@ -101,27 +111,16 @@
   }
 
   &__purchase {
-    width: 60%;
+    width: 80%;
     @include flex(row, space-between, center);
-    @include mobile {
-      width: 80%;
-    }
-    @include tablet {
-      width: 80%;
-    }
+
     div {
       @include flex(row, space-around, center);
     }
   }
 
   &__favorite {
-    width: 60%;
+    width: 80%;
     @include flex(row, space-between, center);
-    @include mobile {
-      width: 80%;
-    }
-    @include tablet {
-      width: 80%;
-    }
   }
 }

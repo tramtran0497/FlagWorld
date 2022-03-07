@@ -58,8 +58,8 @@ function TableHead({ listItems, displaySortList }) {
   return (
     <thead className="tableHead">
       <tr className="tableHead__list">
-        <th>FLAG</th>
-        <th onClick={handleChangeIcon}>
+        <th className="tableHead__list__flag">FLAG</th>
+        <th onClick={handleChangeIcon} className="tableHead__list__name">
           NAME
           <div
             style={{
@@ -73,7 +73,7 @@ function TableHead({ listItems, displaySortList }) {
             )}
           </div>
         </th>
-        <th onClick={handleChangeIcon}>
+        <th onClick={handleChangeIcon} className="tableHead__list__capital">
           CAPITAL
           <div
             style={{
@@ -88,7 +88,7 @@ function TableHead({ listItems, displaySortList }) {
           </div>
         </th>
 
-        <th onClick={handleChangeIcon}>
+        <th onClick={handleChangeIcon} className="tableHead__list__region">
           REGION
           <div
             style={{
@@ -116,9 +116,9 @@ function TableHead({ listItems, displaySortList }) {
             )}
           </div>
         </th>
-        <th>LANGUAGES</th>
-        <th>BUY FLAG</th>
-        <th>FAVORITE</th>
+        <th className="tableHead__list__languages">LANGUAGES</th>
+        <th className="tableHead__list__buyFlag">BUY FLAG</th>
+        <th className="tableHead__list__favorite">FAVORITE</th>
       </tr>
     </thead>
   );

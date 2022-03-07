@@ -3,7 +3,7 @@ import {
   ThemeUpdateContext,
 } from "../../../useContext/ThemeContext.js";
 import React, { useContext } from "react";
-import "../HeaderStyle/theme.scss";
+import "../HeaderStyle/themeSwitch.scss";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 

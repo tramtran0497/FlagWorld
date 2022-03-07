@@ -13,6 +13,10 @@
   @include tablet {
     display: none;
   }
+
+  @include desktop {
+    display: none;
+  }
   &__icon {
     position: relative;
   }
