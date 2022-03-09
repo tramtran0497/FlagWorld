@@ -1,83 +1,41 @@
 # Frontend React Project
+The Flag World project JS version.
+Demo link: https://62287e432aecf52db5684b1d--relaxed-bardeen-73b157.netlify.app/
 
-This is your final project for the frontend module
-
-## Instructions
-
-### General
-
-Fork this repo, then clone the **fork** to your machine and start working on it. You can open a pull request as soon as possible (no need to wait until finished)
-For styling, you can use whatever css solution you want: css, scss, Material UI, etc.
-You need to install the css library yourself. Make sure to use node-sass version 4.14.1 if you want to use scss (using other version may break the app, so switch to the above version in that case)
-
-### Step 1
-
-Write the first custom hook, that:
-
-- Fetch all the countries and return the data
-- Example usage of the hook is like this:
-
+## Instructions for download my code
+- Prerequires: Nodejs is installed in your local.
+- You need to clone my gitHub link.
+- Install all dependencies in packages.json by 
 ```
-// countries variable will be an array of 250 countries
-const [error, countries] = useCountries()
+npm install
 ```
-
-Write the second custom hook, that:
-
-- Given a country name as argument (international or native), returns the data about that country from [countries APIs](https://restcountries.com/).
-- Example usage of the hook is like this:
-
+- Then, run your application
 ```
-// country variable is an object, with details about Suomi (Finland)
-const [error, country] = useCountry('Suomi')
+npm start
 ```
+## Features
+There are two main pages: Home and Country.
+Local Storage keeps your list and the current theme.
 
-### Step 2
+Header: There are three parts: Theme, Search and Navigation.
+- Theme: using `useContext` to create two themes: light and dark mode when clicking for tablet and mobile design and switching for desktop.
+- Search: it appears suggestion area shows all coutries's name relevant.
+- Navigation: clicking the icons, it shows your list and you can directly change your list through actions inside display list.
 
-- Use the first custom hook you created to fetch all the countries data
-- Render this data in a table, you can use html table tag, or component library like Material UI
-- Make sure to split the table into smaller components: `TableHead.js`, `TableBody.js`, `TableRow.js`
+Footer: Thre are three parts: Extra knowledge, Contact and Social Media.
+- Extra knowledge: several links show more detail information about the world.
+- Contact: A form for feedback from customers and it sends to directly my own email, using EmailJS.
+- Social Media: some icons to point links.
 
-### Step 3
+### Home Page features
+Table: 
+- Header Table: Clicking the name of each column, it shows `Sort` function. 
+- Body Table: 
+    The name: links to Country Page.
+    The quantity: you can add/remove quantity of buying flags. It is automatically add your list in Navigation.
+    The favorite: leaving your love for this country by clicking. It is automatically add your list in Navigation.
 
-- Integrate react router into your project and create 2 pages: `home`, and `country`
-- Homepage will contain the countries table that we created above
-- Country page will render the data about one specific country only
-- When a user click on the name of the country in the table, they will be routed to the `country` page
+### Country Page
+Card: It shows detail imformation of the certain country as well as many functions you have in Home Page such as cart and favorite.
+Search: in this page, you still can use Search area to finding the another country.
 
-### Step 4
-
-- Set up all the redux boilerblate for the project
-- Everything related to redux stays in one folder: reducers, actions, store
-- Think about what reducer you're going to make and write them accordingly
-- Move the state that contains all countries to redux store
-- Use `combineReducers` and have a default state for the `createStore`
-
-### Step 5
-
-- Integrate redux thunk, and fetch data from the thunk instead of inside the custom hooks
-
-### Step 6
-
-Convert the app to typescript
-
-### Step 7
-
-Take your time to implement the following features:
-
-- Implement a search bar to search for a country
-- Convert your hook to use either thunk or saga to fetch the data
-- Switch theme of the app with Context API
-- Add/remove the countries to/from favorite list using Redux, Redux-saga, Redux-thunk
-- Sort the table based on name, region, etc.
-- Maker sure the theme and favorite list is saved in local storage to persist across refreshes of the page (you can use thunk or saga to implement side effects that get state from the store and save it to local storage)
-
-## References
-
-[Demo](https://flagify.netlify.app/)
-
-Homepage:
-![homepage](media/home.png)
-
-Country page:
-![country page](media/country.png)
