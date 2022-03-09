@@ -9,10 +9,11 @@
     opacity: 0.75;
     position: absolute;
     z-index: -1;
+    top: 0px;
   }
 
   color: $primary-light;
-  width: 100%;
+  width: 100vw;
   @include flex(row, space-around, center);
   position: fixed;
   z-index: 2;
