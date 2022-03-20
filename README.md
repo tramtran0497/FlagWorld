@@ -1,6 +1,6 @@
 # Frontend React Project
 The Flag World project JS version.
-Demo link: https://62287e432aecf52db5684b1d--relaxed-bardeen-73b157.netlify.app/
+Demo link: https://relaxed-bardeen-73b157.netlify.app/
 
 ## Instructions for download my code
 - Prerequires: Nodejs is installed in your local.
